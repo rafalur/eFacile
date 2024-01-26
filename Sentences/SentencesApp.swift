@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SentencesApp: App {
+    let decksRepo = DeckRepetitionsRemoteRepository()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

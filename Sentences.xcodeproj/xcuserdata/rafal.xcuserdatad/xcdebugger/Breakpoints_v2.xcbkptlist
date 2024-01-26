@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FCE0761B-FFBF-412F-B71C-AF6B8840C4D5"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DAAD675-673D-4849-81C2-BAE4BFE22D90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SentencesTests/TeacherTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4C2CF23-C811-44F4-9EF3-775CD94D7F19"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sentences/Services/Repos/DeckRepetitionsLocalRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "loadRepetitions(decksIds:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4C2CF23-C811-44F4-9EF3-775CD94D7F19 - 8e5b9b8e1564e60b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Sentences.DeckRepetitionsLocalRepository.loadRepetitions(decksIds: Swift.Array&lt;Swift.String&gt;) async -&gt; Swift.Array&lt;Sentences.DeckRepetitions&gt;"
+                  moduleName = "Sentences"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafal/Documents/Work/Sentences/Sentences/Services/Repos/DeckRepetitionsLocalRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "532">
+               </Location>
+               <Location
+                  uuid = "D4C2CF23-C811-44F4-9EF3-775CD94D7F19 - e459f0e0d504dd0c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Sentences.DeckRepetitions, Sentences.DeckRepetitions) -&gt; Swift.Bool in Sentences.DeckRepetitionsLocalRepository.loadRepetitions(decksIds: Swift.Array&lt;Swift.String&gt;) async -&gt; Swift.Array&lt;Sentences.DeckRepetitions&gt;"
+                  moduleName = "Sentences"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafal/Documents/Work/Sentences/Sentences/Services/Repos/DeckRepetitionsLocalRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B8BDB7F-0B86-41AE-A591-1F3A47985281"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sentences/Services/Repos/DeckRepetitionsRemoteRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "fetchDeckRepetitions(deckId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9347EC20-D83D-4C1B-B74C-FD00F4269294"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sentences/Services/RepetitionsProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "merge(deckRepetitions:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEEA9727-D0DD-4918-97C8-B4B8E809C9DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sentences/Services/RepetitionsProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "merge(deckRepetitions:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DEEA9727-D0DD-4918-97C8-B4B8E809C9DC - 9701c176794f5e38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sentences.RepetitionsProvider.merge(deckRepetitions: Sentences.DeckRepetitions, with: Sentences.DeckRepetitions) -&gt; Sentences.DeckRepetitions"
+                  moduleName = "Sentences"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafal/Documents/Work/Sentences/Sentences/Services/RepetitionsProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "DEEA9727-D0DD-4918-97C8-B4B8E809C9DC - 9701c176794f419b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sentences.RepetitionsProvider.merge(deckRepetitions: Sentences.DeckRepetitions, with: Sentences.DeckRepetitions) -&gt; Sentences.DeckRepetitions"
+                  moduleName = "Sentences"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafal/Documents/Work/Sentences/Sentences/Services/RepetitionsProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

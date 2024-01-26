@@ -7,13 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5A9A24C2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A24B2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift */; };
+		B5A9A24E2B5721D50015A98B /* DecksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A24D2B5721D50015A98B /* DecksListView.swift */; };
+		B5A9A2512B57223B0015A98B /* DecksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2502B57223B0015A98B /* DecksListViewModel.swift */; };
+		B5A9A2532B5724390015A98B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2522B5724390015A98B /* Card.swift */; };
+		B5A9A2552B5727B20015A98B /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2542B5727B20015A98B /* Deck.swift */; };
+		B5A9A2572B572CDE0015A98B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2562B572CDE0015A98B /* HomeView.swift */; };
+		B5A9A25D2B59B5C60015A98B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A25C2B59B5C60015A98B /* Theme.swift */; };
+		B5A9A2612B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */; };
+		B5A9A2632B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */; };
+		B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */; };
+		B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */; };
+		B5A9A26A2B5AA69E0015A98B /* DeckInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */; };
+		B5A9A26C2B5C15850015A98B /* RepetitionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */; };
+		B5A9A26F2B5C1A030015A98B /* RepetitionsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A26E2B5C1A030015A98B /* RepetitionsProviderMock.swift */; };
+		B5A9A2712B5C277A0015A98B /* FilesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2702B5C277A0015A98B /* FilesHelper.swift */; };
+		B5A9A2732B5C40C20015A98B /* Dependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2722B5C40C20015A98B /* Dependecies.swift */; };
+		B5A9A2762B5D30D90015A98B /* DeckPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2752B5D30D90015A98B /* DeckPreviewView.swift */; };
+		B5A9A2792B5D30F00015A98B /* DeckPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */; };
+		B5BAAA5A2B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */; };
+		B5BAAA5C2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */; };
 		B5F1E64D2B44BAD800DB5A64 /* SentencesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */; };
-		B5F1E64F2B44BAD800DB5A64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E64E2B44BAD800DB5A64 /* ContentView.swift */; };
 		B5F1E6512B44BADB00DB5A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */; };
 		B5F1E6542B44BADB00DB5A64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F1E6532B44BADB00DB5A64 /* Preview Assets.xcassets */; };
 		B5F1E65F2B44BADB00DB5A64 /* SentencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */; };
 		B5F1E6692B44BADB00DB5A64 /* SentencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6682B44BADB00DB5A64 /* SentencesUITests.swift */; };
 		B5F1E66B2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E66A2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift */; };
+		B5F1E6782B44BBDD00DB5A64 /* Sentences.csv in Resources */ = {isa = PBXBuildFile; fileRef = B5F1E6772B44BBDD00DB5A64 /* Sentences.csv */; };
+		B5F1E67B2B44C10F00DB5A64 /* StringMetric in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1E67A2B44C10F00DB5A64 /* StringMetric */; };
+		B5F1E67D2B4B053600DB5A64 /* RepetitionsSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E67C2B4B053600DB5A64 /* RepetitionsSessionManager.swift */; };
+		B5F1E6812B4BE96100DB5A64 /* UIColor+blend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6802B4BE96100DB5A64 /* UIColor+blend.swift */; };
+		B5F1E6842B4BE9B200DB5A64 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6832B4BE9B200DB5A64 /* LearningView.swift */; };
+		B5F1E6872B4BEA1F00DB5A64 /* LearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6862B4BEA1F00DB5A64 /* LearningViewModel.swift */; };
+		B5F1E68A2B4BEAAC00DB5A64 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */; };
+		B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */; };
+		B5F1E6912B4C04B000DB5A64 /* TeacherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */; };
+		B5F1E6932B4C571C00DB5A64 /* RepetitionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6922B4C571C00DB5A64 /* RepetitionDebugView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +63,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B5A9A24B2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B5A9A24D2B5721D50015A98B /* DecksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksListView.swift; sourceTree = "<group>"; };
+		B5A9A2502B57223B0015A98B /* DecksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksListViewModel.swift; sourceTree = "<group>"; };
+		B5A9A2522B5724390015A98B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B5A9A2542B5727B20015A98B /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		B5A9A2562B572CDE0015A98B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B5A9A25C2B59B5C60015A98B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DeerSnowRegular-X3gLZ.ttf"; sourceTree = "<group>"; };
+		B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartProgressView.swift; sourceTree = "<group>"; };
+		B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitions.swift; sourceTree = "<group>"; };
+		B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckInfo.swift; sourceTree = "<group>"; };
+		B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsProvider.swift; sourceTree = "<group>"; };
+		B5A9A26E2B5C1A030015A98B /* RepetitionsProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsProviderMock.swift; sourceTree = "<group>"; };
+		B5A9A2702B5C277A0015A98B /* FilesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesHelper.swift; sourceTree = "<group>"; };
+		B5A9A2722B5C40C20015A98B /* Dependecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependecies.swift; sourceTree = "<group>"; };
+		B5A9A2752B5D30D90015A98B /* DeckPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckPreviewView.swift; sourceTree = "<group>"; };
+		B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckPreviewData.swift; sourceTree = "<group>"; };
+		B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsRemoteRepository.swift; sourceTree = "<group>"; };
+		B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsLocalRepository.swift; sourceTree = "<group>"; };
 		B5F1E6492B44BAD800DB5A64 /* Sentences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesApp.swift; sourceTree = "<group>"; };
-		B5F1E64E2B44BAD800DB5A64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F1E6532B44BADB00DB5A64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5F1E6552B44BADB00DB5A64 /* Sentences.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentences.entitlements; sourceTree = "<group>"; };
@@ -45,6 +93,16 @@
 		B5F1E6642B44BADB00DB5A64 /* SentencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E6682B44BADB00DB5A64 /* SentencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesUITests.swift; sourceTree = "<group>"; };
 		B5F1E66A2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B5F1E6772B44BBDD00DB5A64 /* Sentences.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sentences.csv; sourceTree = "<group>"; };
+		B5F1E67C2B4B053600DB5A64 /* RepetitionsSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsSessionManager.swift; sourceTree = "<group>"; };
+		B5F1E67E2B4BE8CB00DB5A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B5F1E6802B4BE96100DB5A64 /* UIColor+blend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+blend.swift"; sourceTree = "<group>"; };
+		B5F1E6832B4BE9B200DB5A64 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
+		B5F1E6862B4BEA1F00DB5A64 /* LearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewModel.swift; sourceTree = "<group>"; };
+		B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepetitionsResult.swift; sourceTree = "<group>"; };
+		B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTests.swift; sourceTree = "<group>"; };
+		B5F1E6922B4C571C00DB5A64 /* RepetitionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionDebugView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F1E67B2B44C10F00DB5A64 /* StringMetric in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +131,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5A9A24F2B5721E20015A98B /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A24D2B5721D50015A98B /* DecksListView.swift */,
+				B5A9A2502B57223B0015A98B /* DecksListViewModel.swift */,
+			);
+			path = Decks;
+			sourceTree = "<group>";
+		};
+		B5A9A2582B59B46D0015A98B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B5A9A25B2B59B5A20015A98B /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A25C2B59B5C60015A98B /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B5A9A2642B5A6C100015A98B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B5A9A26D2B5C19E90015A98B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A26E2B5C1A030015A98B /* RepetitionsProviderMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		B5A9A2742B5D30AE0015A98B /* DeckPreview */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A2752B5D30D90015A98B /* DeckPreviewView.swift */,
+			);
+			path = DeckPreview;
+			sourceTree = "<group>";
+		};
+		B5BAAA582B60FBA700EA802F /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A24B2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift */,
+				B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */,
+				B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
 		B5F1E6402B44BAD800DB5A64 = {
 			isa = PBXGroup;
 			children = (
+				B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */,
+				B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */,
 				B5F1E64B2B44BAD800DB5A64 /* Sentences */,
 				B5F1E65D2B44BADB00DB5A64 /* SentencesTests */,
 				B5F1E6672B44BADB00DB5A64 /* SentencesUITests */,
@@ -95,11 +214,19 @@
 		B5F1E64B2B44BAD800DB5A64 /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
+				B5A9A25B2B59B5A20015A98B /* Theme */,
+				B5A9A2582B59B46D0015A98B /* Resources */,
+				B5F1E68D2B4BEB0700DB5A64 /* Services */,
+				B5F1E6882B4BEAA100DB5A64 /* Model */,
+				B5F1E6822B4BE9A300DB5A64 /* Views */,
+				B5F1E67F2B4BE91700DB5A64 /* Utils */,
+				B5F1E67E2B4BE8CB00DB5A64 /* Info.plist */,
 				B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */,
-				B5F1E64E2B44BAD800DB5A64 /* ContentView.swift */,
 				B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */,
 				B5F1E6552B44BADB00DB5A64 /* Sentences.entitlements */,
 				B5F1E6522B44BADB00DB5A64 /* Preview Content */,
+				B5F1E6772B44BBDD00DB5A64 /* Sentences.csv */,
+				B5A9A2722B5C40C20015A98B /* Dependecies.swift */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -116,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */,
+				B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */,
 			);
 			path = SentencesTests;
 			sourceTree = "<group>";
@@ -127,6 +255,62 @@
 				B5F1E66A2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift */,
 			);
 			path = SentencesUITests;
+			sourceTree = "<group>";
+		};
+		B5F1E67F2B4BE91700DB5A64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B5F1E6802B4BE96100DB5A64 /* UIColor+blend.swift */,
+				B5A9A2702B5C277A0015A98B /* FilesHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B5F1E6822B4BE9A300DB5A64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9A2742B5D30AE0015A98B /* DeckPreview */,
+				B5A9A2642B5A6C100015A98B /* Common */,
+				B5A9A24F2B5721E20015A98B /* Decks */,
+				B5F1E6852B4BEA0B00DB5A64 /* Learning */,
+				B5A9A2562B572CDE0015A98B /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5F1E6852B4BEA0B00DB5A64 /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				B5F1E6832B4BE9B200DB5A64 /* LearningView.swift */,
+				B5F1E6862B4BEA1F00DB5A64 /* LearningViewModel.swift */,
+				B5F1E6922B4C571C00DB5A64 /* RepetitionDebugView.swift */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
+		B5F1E6882B4BEAA100DB5A64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */,
+				B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */,
+				B5A9A2522B5724390015A98B /* Card.swift */,
+				B5A9A2542B5727B20015A98B /* Deck.swift */,
+				B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */,
+				B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */,
+				B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5F1E68D2B4BEB0700DB5A64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5BAAA582B60FBA700EA802F /* Repos */,
+				B5A9A26D2B5C19E90015A98B /* Mocks */,
+				B5F1E67C2B4B053600DB5A64 /* RepetitionsSessionManager.swift */,
+				B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +329,9 @@
 			dependencies = (
 			);
 			name = Sentences;
+			packageProductDependencies = (
+				B5F1E67A2B44C10F00DB5A64 /* StringMetric */,
+			);
 			productName = Sentences;
 			productReference = B5F1E6492B44BAD800DB5A64 /* Sentences.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +404,9 @@
 				Base,
 			);
 			mainGroup = B5F1E6402B44BAD800DB5A64;
+			packageReferences = (
+				B5F1E6792B44C10F00DB5A64 /* XCRemoteSwiftPackageReference "StringMetric.swift" */,
+			);
 			productRefGroup = B5F1E64A2B44BAD800DB5A64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,8 +423,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A9A2632B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf in Resources */,
 				B5F1E6542B44BADB00DB5A64 /* Preview Assets.xcassets in Resources */,
 				B5F1E6512B44BADB00DB5A64 /* Assets.xcassets in Resources */,
+				B5A9A2612B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf in Resources */,
+				B5F1E6782B44BBDD00DB5A64 /* Sentences.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +452,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F1E64F2B44BAD800DB5A64 /* ContentView.swift in Sources */,
+				B5A9A2552B5727B20015A98B /* Deck.swift in Sources */,
+				B5F1E6872B4BEA1F00DB5A64 /* LearningViewModel.swift in Sources */,
+				B5A9A2732B5C40C20015A98B /* Dependecies.swift in Sources */,
+				B5F1E67D2B4B053600DB5A64 /* RepetitionsSessionManager.swift in Sources */,
+				B5A9A2572B572CDE0015A98B /* HomeView.swift in Sources */,
+				B5A9A26A2B5AA69E0015A98B /* DeckInfo.swift in Sources */,
 				B5F1E64D2B44BAD800DB5A64 /* SentencesApp.swift in Sources */,
+				B5A9A2532B5724390015A98B /* Card.swift in Sources */,
+				B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */,
+				B5A9A2512B57223B0015A98B /* DecksListViewModel.swift in Sources */,
+				B5BAAA5A2B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift in Sources */,
+				B5A9A26F2B5C1A030015A98B /* RepetitionsProviderMock.swift in Sources */,
+				B5A9A2762B5D30D90015A98B /* DeckPreviewView.swift in Sources */,
+				B5A9A25D2B59B5C60015A98B /* Theme.swift in Sources */,
+				B5F1E6842B4BE9B200DB5A64 /* LearningView.swift in Sources */,
+				B5A9A24C2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift in Sources */,
+				B5A9A26C2B5C15850015A98B /* RepetitionsProvider.swift in Sources */,
+				B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */,
+				B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */,
+				B5BAAA5C2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift in Sources */,
+				B5A9A2712B5C277A0015A98B /* FilesHelper.swift in Sources */,
+				B5F1E68A2B4BEAAC00DB5A64 /* Sentence.swift in Sources */,
+				B5F1E6812B4BE96100DB5A64 /* UIColor+blend.swift in Sources */,
+				B5A9A2792B5D30F00015A98B /* DeckPreviewData.swift in Sources */,
+				B5A9A24E2B5721D50015A98B /* DecksListView.swift in Sources */,
+				B5F1E6932B4C571C00DB5A64 /* RepetitionDebugView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F1E6912B4C04B000DB5A64 /* TeacherTests.swift in Sources */,
 				B5F1E65F2B44BADB00DB5A64 /* SentencesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,12 +634,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sentences/Sentences.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sentences/Preview Content\"";
+				DEVELOPMENT_TEAM = G9LR75DCPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentences/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,8 +651,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Sentences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -441,12 +666,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sentences/Sentences.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sentences/Preview Content\"";
+				DEVELOPMENT_TEAM = G9LR75DCPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sentences/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,8 +683,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Sentences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -472,8 +704,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.SentencesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sentences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sentences";
 			};
 			name = Debug;
@@ -490,8 +726,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.SentencesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sentences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sentences";
 			};
 			name = Release;
@@ -568,6 +808,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5F1E6792B44C10F00DB5A64 /* XCRemoteSwiftPackageReference "StringMetric.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/autozimu/StringMetric.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5F1E67A2B44C10F00DB5A64 /* StringMetric */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5F1E6792B44C10F00DB5A64 /* XCRemoteSwiftPackageReference "StringMetric.swift" */;
+			productName = StringMetric;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5F1E6412B44BAD800DB5A64 /* Project object */;
 }
