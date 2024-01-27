@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct SentencesApp: App {
+struct EFacileApp: App {
     let decksRepo = DeckRepetitionsRemoteRepository()
     
     var body: some Scene {

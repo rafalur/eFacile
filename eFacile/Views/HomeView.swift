@@ -30,9 +30,9 @@ struct HomeView: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         HStack {
-                            Text("om")
+                            Text("e")
                                 .font(Theme.fonts.regular(24))
-                            + Text("NomNom")
+                            + Text("Facile")
                                 .font(Theme.fonts.extraBold(24))
                         }
                         .foregroundColor(Theme.colors.foreground)

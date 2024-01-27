@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import Sentences
+@testable import eFacile
 
 final class TeacherTests: XCTestCase {
 

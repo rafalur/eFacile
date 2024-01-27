@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Sentences
+@testable import eFacile
 
 final class SentencesTests: XCTestCase {
 

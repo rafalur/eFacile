@@ -26,7 +26,7 @@
 		B5A9A2792B5D30F00015A98B /* DeckPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */; };
 		B5BAAA5A2B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */; };
 		B5BAAA5C2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */; };
-		B5F1E64D2B44BAD800DB5A64 /* SentencesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */; };
+		B5F1E64D2B44BAD800DB5A64 /* EFacileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E64C2B44BAD800DB5A64 /* EFacileApp.swift */; };
 		B5F1E6512B44BADB00DB5A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */; };
 		B5F1E6542B44BADB00DB5A64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F1E6532B44BADB00DB5A64 /* Preview Assets.xcassets */; };
 		B5F1E65F2B44BADB00DB5A64 /* SentencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */; };
@@ -82,10 +82,10 @@
 		B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsRemoteRepository.swift; sourceTree = "<group>"; };
 		B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsLocalRepository.swift; sourceTree = "<group>"; };
 		B5F1E6492B44BAD800DB5A64 /* eFacile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eFacile.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesApp.swift; sourceTree = "<group>"; };
+		B5F1E64C2B44BAD800DB5A64 /* EFacileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFacileApp.swift; sourceTree = "<group>"; };
 		B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F1E6532B44BADB00DB5A64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B5F1E6552B44BADB00DB5A64 /* Sentences.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentences.entitlements; sourceTree = "<group>"; };
+		B5F1E6552B44BADB00DB5A64 /* EFacile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EFacile.entitlements; sourceTree = "<group>"; };
 		B5F1E65A2B44BADB00DB5A64 /* eFacileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eFacileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesTests.swift; sourceTree = "<group>"; };
 		B5F1E6642B44BADB00DB5A64 /* eFacileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eFacileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,9 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */,
-				B5F1E64B2B44BAD800DB5A64 /* Sentences */,
-				B5F1E65D2B44BADB00DB5A64 /* SentencesTests */,
-				B5F1E6672B44BADB00DB5A64 /* SentencesUITests */,
+				B5F1E64B2B44BAD800DB5A64 /* eFacile */,
+				B5F1E65D2B44BADB00DB5A64 /* eFacileTests */,
+				B5F1E6672B44BADB00DB5A64 /* eFacileUITests */,
 				B5F1E64A2B44BAD800DB5A64 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B5F1E64B2B44BAD800DB5A64 /* Sentences */ = {
+		B5F1E64B2B44BAD800DB5A64 /* eFacile */ = {
 			isa = PBXGroup;
 			children = (
 				B5A9A25B2B59B5A20015A98B /* Theme */,
@@ -218,14 +218,14 @@
 				B5F1E6822B4BE9A300DB5A64 /* Views */,
 				B5F1E67F2B4BE91700DB5A64 /* Utils */,
 				B5F1E67E2B4BE8CB00DB5A64 /* Info.plist */,
-				B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */,
+				B5F1E64C2B44BAD800DB5A64 /* EFacileApp.swift */,
 				B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */,
-				B5F1E6552B44BADB00DB5A64 /* Sentences.entitlements */,
+				B5F1E6552B44BADB00DB5A64 /* EFacile.entitlements */,
 				B5F1E6522B44BADB00DB5A64 /* Preview Content */,
 				B5F1E6772B44BBDD00DB5A64 /* Sentences.csv */,
 				B5A9A2722B5C40C20015A98B /* Dependecies.swift */,
 			);
-			path = Sentences;
+			path = eFacile;
 			sourceTree = "<group>";
 		};
 		B5F1E6522B44BADB00DB5A64 /* Preview Content */ = {
@@ -236,22 +236,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B5F1E65D2B44BADB00DB5A64 /* SentencesTests */ = {
+		B5F1E65D2B44BADB00DB5A64 /* eFacileTests */ = {
 			isa = PBXGroup;
 			children = (
 				B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */,
 				B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */,
 			);
-			path = SentencesTests;
+			path = eFacileTests;
 			sourceTree = "<group>";
 		};
-		B5F1E6672B44BADB00DB5A64 /* SentencesUITests */ = {
+		B5F1E6672B44BADB00DB5A64 /* eFacileUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B5F1E6682B44BADB00DB5A64 /* SentencesUITests.swift */,
 				B5F1E66A2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift */,
 			);
-			path = SentencesUITests;
+			path = eFacileUITests;
 			sourceTree = "<group>";
 		};
 		B5F1E67F2B4BE91700DB5A64 /* Utils */ = {
@@ -454,7 +454,7 @@
 				B5F1E67D2B4B053600DB5A64 /* RepetitionsSessionManager.swift in Sources */,
 				B5A9A2572B572CDE0015A98B /* HomeView.swift in Sources */,
 				B5A9A26A2B5AA69E0015A98B /* DeckInfo.swift in Sources */,
-				B5F1E64D2B44BAD800DB5A64 /* SentencesApp.swift in Sources */,
+				B5F1E64D2B44BAD800DB5A64 /* EFacileApp.swift in Sources */,
 				B5A9A2532B5724390015A98B /* Card.swift in Sources */,
 				B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */,
 				B5A9A2512B57223B0015A98B /* DecksListViewModel.swift in Sources */,
@@ -629,23 +629,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sentences/Sentences.entitlements;
+				CODE_SIGN_ENTITLEMENTS = eFacile/EFacile.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sentences/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"eFacile/Preview Content\"";
 				DEVELOPMENT_TEAM = G9LR75DCPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sentences/Info.plist;
+				INFOPLIST_FILE = eFacile/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.Sentences;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.efacile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -661,23 +661,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sentences/Sentences.entitlements;
+				CODE_SIGN_ENTITLEMENTS = eFacile/EFacile.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sentences/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"eFacile/Preview Content\"";
 				DEVELOPMENT_TEAM = G9LR75DCPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sentences/Info.plist;
+				INFOPLIST_FILE = eFacile/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.Sentences;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.efacile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
