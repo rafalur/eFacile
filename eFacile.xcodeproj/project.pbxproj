@@ -14,7 +14,6 @@
 		B5A9A2552B5727B20015A98B /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2542B5727B20015A98B /* Deck.swift */; };
 		B5A9A2572B572CDE0015A98B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2562B572CDE0015A98B /* HomeView.swift */; };
 		B5A9A25D2B59B5C60015A98B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A25C2B59B5C60015A98B /* Theme.swift */; };
-		B5A9A2612B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */; };
 		B5A9A2632B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */; };
 		B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */; };
 		B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */; };
@@ -70,7 +69,6 @@
 		B5A9A2542B5727B20015A98B /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		B5A9A2562B572CDE0015A98B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B5A9A25C2B59B5C60015A98B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DeerSnowRegular-X3gLZ.ttf"; sourceTree = "<group>"; };
 		B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartProgressView.swift; sourceTree = "<group>"; };
 		B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitions.swift; sourceTree = "<group>"; };
@@ -83,14 +81,14 @@
 		B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckPreviewData.swift; sourceTree = "<group>"; };
 		B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsRemoteRepository.swift; sourceTree = "<group>"; };
 		B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitionsLocalRepository.swift; sourceTree = "<group>"; };
-		B5F1E6492B44BAD800DB5A64 /* Sentences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentences.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F1E6492B44BAD800DB5A64 /* eFacile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eFacile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E64C2B44BAD800DB5A64 /* SentencesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesApp.swift; sourceTree = "<group>"; };
 		B5F1E6502B44BADB00DB5A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F1E6532B44BADB00DB5A64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5F1E6552B44BADB00DB5A64 /* Sentences.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentences.entitlements; sourceTree = "<group>"; };
-		B5F1E65A2B44BADB00DB5A64 /* SentencesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentencesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F1E65A2B44BADB00DB5A64 /* eFacileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eFacileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E65E2B44BADB00DB5A64 /* SentencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesTests.swift; sourceTree = "<group>"; };
-		B5F1E6642B44BADB00DB5A64 /* SentencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F1E6642B44BADB00DB5A64 /* eFacileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eFacileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F1E6682B44BADB00DB5A64 /* SentencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesUITests.swift; sourceTree = "<group>"; };
 		B5F1E66A2B44BADB00DB5A64 /* SentencesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B5F1E6772B44BBDD00DB5A64 /* Sentences.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sentences.csv; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		B5F1E6402B44BAD800DB5A64 = {
 			isa = PBXGroup;
 			children = (
-				B5A9A2602B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf */,
 				B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */,
 				B5F1E64B2B44BAD800DB5A64 /* Sentences */,
 				B5F1E65D2B44BADB00DB5A64 /* SentencesTests */,
@@ -204,9 +201,9 @@
 		B5F1E64A2B44BAD800DB5A64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5F1E6492B44BAD800DB5A64 /* Sentences.app */,
-				B5F1E65A2B44BADB00DB5A64 /* SentencesTests.xctest */,
-				B5F1E6642B44BADB00DB5A64 /* SentencesUITests.xctest */,
+				B5F1E6492B44BAD800DB5A64 /* eFacile.app */,
+				B5F1E65A2B44BADB00DB5A64 /* eFacileTests.xctest */,
+				B5F1E6642B44BADB00DB5A64 /* eFacileUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,9 +313,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5F1E6482B44BAD800DB5A64 /* Sentences */ = {
+		B5F1E6482B44BAD800DB5A64 /* eFacile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5F1E66E2B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "Sentences" */;
+			buildConfigurationList = B5F1E66E2B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacile" */;
 			buildPhases = (
 				B5F1E6452B44BAD800DB5A64 /* Sources */,
 				B5F1E6462B44BAD800DB5A64 /* Frameworks */,
@@ -328,17 +325,17 @@
 			);
 			dependencies = (
 			);
-			name = Sentences;
+			name = eFacile;
 			packageProductDependencies = (
 				B5F1E67A2B44C10F00DB5A64 /* StringMetric */,
 			);
 			productName = Sentences;
-			productReference = B5F1E6492B44BAD800DB5A64 /* Sentences.app */;
+			productReference = B5F1E6492B44BAD800DB5A64 /* eFacile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B5F1E6592B44BADB00DB5A64 /* SentencesTests */ = {
+		B5F1E6592B44BADB00DB5A64 /* eFacileTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5F1E6712B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "SentencesTests" */;
+			buildConfigurationList = B5F1E6712B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacileTests" */;
 			buildPhases = (
 				B5F1E6562B44BADB00DB5A64 /* Sources */,
 				B5F1E6572B44BADB00DB5A64 /* Frameworks */,
@@ -349,14 +346,14 @@
 			dependencies = (
 				B5F1E65C2B44BADB00DB5A64 /* PBXTargetDependency */,
 			);
-			name = SentencesTests;
+			name = eFacileTests;
 			productName = SentencesTests;
-			productReference = B5F1E65A2B44BADB00DB5A64 /* SentencesTests.xctest */;
+			productReference = B5F1E65A2B44BADB00DB5A64 /* eFacileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B5F1E6632B44BADB00DB5A64 /* SentencesUITests */ = {
+		B5F1E6632B44BADB00DB5A64 /* eFacileUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5F1E6742B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "SentencesUITests" */;
+			buildConfigurationList = B5F1E6742B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacileUITests" */;
 			buildPhases = (
 				B5F1E6602B44BADB00DB5A64 /* Sources */,
 				B5F1E6612B44BADB00DB5A64 /* Frameworks */,
@@ -367,9 +364,9 @@
 			dependencies = (
 				B5F1E6662B44BADB00DB5A64 /* PBXTargetDependency */,
 			);
-			name = SentencesUITests;
+			name = eFacileUITests;
 			productName = SentencesUITests;
-			productReference = B5F1E6642B44BADB00DB5A64 /* SentencesUITests.xctest */;
+			productReference = B5F1E6642B44BADB00DB5A64 /* eFacileUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -395,7 +392,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B5F1E6442B44BAD800DB5A64 /* Build configuration list for PBXProject "Sentences" */;
+			buildConfigurationList = B5F1E6442B44BAD800DB5A64 /* Build configuration list for PBXProject "eFacile" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -411,9 +408,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5F1E6482B44BAD800DB5A64 /* Sentences */,
-				B5F1E6592B44BADB00DB5A64 /* SentencesTests */,
-				B5F1E6632B44BADB00DB5A64 /* SentencesUITests */,
+				B5F1E6482B44BAD800DB5A64 /* eFacile */,
+				B5F1E6592B44BADB00DB5A64 /* eFacileTests */,
+				B5F1E6632B44BADB00DB5A64 /* eFacileUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,7 +423,6 @@
 				B5A9A2632B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf in Resources */,
 				B5F1E6542B44BADB00DB5A64 /* Preview Assets.xcassets in Resources */,
 				B5F1E6512B44BADB00DB5A64 /* Assets.xcassets in Resources */,
-				B5A9A2612B59BF8B0015A98B /* DeerSnowRegular-X3gLZ.ttf in Resources */,
 				B5F1E6782B44BBDD00DB5A64 /* Sentences.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,12 +500,12 @@
 /* Begin PBXTargetDependency section */
 		B5F1E65C2B44BADB00DB5A64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B5F1E6482B44BAD800DB5A64 /* Sentences */;
+			target = B5F1E6482B44BAD800DB5A64 /* eFacile */;
 			targetProxy = B5F1E65B2B44BADB00DB5A64 /* PBXContainerItemProxy */;
 		};
 		B5F1E6662B44BADB00DB5A64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B5F1E6482B44BAD800DB5A64 /* Sentences */;
+			target = B5F1E6482B44BAD800DB5A64 /* eFacile */;
 			targetProxy = B5F1E6652B44BADB00DB5A64 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,7 +706,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sentences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sentences";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eFacile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eFacile";
 			};
 			name = Debug;
 		};
@@ -732,7 +728,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sentences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sentences";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eFacile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eFacile";
 			};
 			name = Release;
 		};
@@ -771,7 +767,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5F1E6442B44BAD800DB5A64 /* Build configuration list for PBXProject "Sentences" */ = {
+		B5F1E6442B44BAD800DB5A64 /* Build configuration list for PBXProject "eFacile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5F1E66C2B44BADB00DB5A64 /* Debug */,
@@ -780,7 +776,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5F1E66E2B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "Sentences" */ = {
+		B5F1E66E2B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5F1E66F2B44BADB00DB5A64 /* Debug */,
@@ -789,7 +785,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5F1E6712B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "SentencesTests" */ = {
+		B5F1E6712B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacileTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5F1E6722B44BADB00DB5A64 /* Debug */,
@@ -798,7 +794,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5F1E6742B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "SentencesUITests" */ = {
+		B5F1E6742B44BADB00DB5A64 /* Build configuration list for PBXNativeTarget "eFacileUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5F1E6752B44BADB00DB5A64 /* Debug */,
