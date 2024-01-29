@@ -21,9 +21,7 @@ class GithubContentService{
     
     func fetchContent(url: String) -> AnyPublisher<Data, MoyaError> {
         return provider.requestPublisher(.fileContent(url: url))
-//            .map([TreeItem].self)
             .map { $0.data }
-            .print("eeee")
             .eraseToAnyPublisher()
     }
 }
@@ -50,4 +48,5 @@ struct TreeItem: Codable {
 struct Course {
     let id: String
     let name: String
+    let imageUrl: String?
 }

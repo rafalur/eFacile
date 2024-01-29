@@ -20,6 +20,8 @@ class CoursesProvider {
         static let coursesDir = "groups"
         static let courseNameKey = "group_name"
         static let indexFileName = "index.txt"
+        static let imageFileNameKey = "image_file_name"
+        static let imageFileUrlNameKey = "image_file_url"
     }
     
     let ghContentService = GithubContentService()
@@ -41,20 +43,46 @@ class CoursesProvider {
     func fetchCourse(courseName: String) -> AnyPublisher <Course, CoursesFetchError> {
         return ghContentService.treeItemsForDirectory(dir: "\(Constants.coursesDir)/\(courseName)")
             .mapError { _ in CoursesFetchError.serviceConnectionFailure }
-            .compactMap { items in
-                guard let indexFileUrl = items.first(where: { item in item.name == Constants.indexFileName })?.downloadUrl else {
+            .map { treeItems in treeItems.filter { $0.isFile } }
+            .flatMap { [weak self] treeItems -> AnyPublisher<[String: String], CoursesFetchError> in
+                return self?.courseInfoParams(fileItems: treeItems) ?? Empty(completeImmediately: true).eraseToAnyPublisher()
+            }
+            .compactMap {
+                guard let name = $0[Constants.courseNameKey] else {
                     return nil
                 }
-                return URL(string: indexFileUrl)
+                
+                let imageUrl = $0[Constants.imageFileUrlNameKey]
+                
+                return Course(id: courseName, name: name, imageUrl: imageUrl)
             }
-            .flatMap { [weak self] url -> AnyPublisher<Data, CoursesFetchError> in
-                return self?.downloadFile(url: url) ?? Empty(completeImmediately: true).eraseToAnyPublisher()
+            .eraseToAnyPublisher()
+    }
+    
+    func courseInfoParams(fileItems: [TreeItem]) -> AnyPublisher<[String: String], CoursesFetchError> {
+        guard let indexFileUrl = fileItems.first(where: { item in item.name == Constants.indexFileName })?.downloadUrl else {
+            return Empty().eraseToAnyPublisher()
+        }
+        
+        guard let url = URL(string: indexFileUrl) else {
+            return Empty().eraseToAnyPublisher()
+        }
+
+        return downloadFile(url: url)
+            .compactMap {
+                guard let text = String(data: $0, encoding: .utf8) else {
+                    return nil
+                }
+                
+                var dict = text.components(separatedBy: .newlines).toDict()
+                
+                if let imageFileName = dict[Constants.imageFileNameKey], let matchingFileItem = fileItems.first(where: { $0.name == imageFileName }) {
+                    dict.removeValue(forKey: imageFileName)
+                    dict[Constants.imageFileUrlNameKey] = matchingFileItem.downloadUrl
+                }
+                                
+                return dict
             }
-            .compactMap { [weak self] data in
-                guard let fileContent = String(data: data, encoding: .utf8) else { return nil }
-                return self?.parseGroupName(content: fileContent)
-            }
-            .map { Course(id: courseName, name: $0) }
             .eraseToAnyPublisher()
     }
     
@@ -65,11 +93,5 @@ class CoursesProvider {
                 CoursesFetchError.fileDownloadFailure
             }
             .eraseToAnyPublisher()
-    }
-    
-    private func parseGroupName(content: String) -> String? {
-        let lines = content.components(separatedBy: .newlines)
-                        
-        return lines.toDict()[Constants.courseNameKey]
     }
 }

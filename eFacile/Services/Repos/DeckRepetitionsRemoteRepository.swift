@@ -85,7 +85,7 @@ class DeckRepetitionsRemoteRepository: DeckRepetitionsProviderProtocol {
             .compactMap { [weak self] content in
                 return self?.parseGroupName(content: content)
             }
-            .map { Course(id: groupName, name: $0) }
+            .map { Course(id: groupName, name: $0, imageUrl: nil) }
             .eraseToAnyPublisher()
     }
     

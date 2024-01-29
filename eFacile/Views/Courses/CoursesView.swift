@@ -25,7 +25,9 @@ struct CoursesView: View {
             
             
             if viewModel.courses.isEmpty {
-                ProgressView().padding(.top)
+                ProgressView()
+                    .controlSize(.large)
+                    .padding(.top)
             } else {
                 coursesScrollView
             }
@@ -60,15 +62,32 @@ struct CourseView: View {
     let onTap: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        HStack(spacing: 10) {
             Text("\(course.name)")
                 .multilineTextAlignment(.leading)
-                .font(Theme.fonts.bold(18))
+                .font(Theme.fonts.bold(20))
+                .padding(.horizontal)
+            
+            Spacer()
+            if let imageUrl = course.imageUrl, let url = URL(string: imageUrl)  {
+                AsyncImage(url: url) { image in
+                          image
+                              .resizable()
+                              .aspectRatio(contentMode: .fill)
+                              .cornerRadius(10)
+                              
+                      } placeholder: {
+                          Color.gray
+                              .cornerRadius(10)
+                      }
+                      .frame(width: 60, height: 60)
+                      .padding(10)
+            }
         }
         .foregroundColor(Theme.colors.foreground)
         .frame(maxWidth: .infinity)
-        .padding()
-        .background(Theme.colors.backgroundSecondary)
+        .background(LinearGradient(gradient: Gradient(colors: [Theme.colors.backgroundSecondary, Theme.colors.backgroundSecondary, Theme.colors.background]), startPoint: .leading, endPoint: .trailing)
+        )
         .cornerRadius(15)
         .shadow(color: Color.gray.opacity(0.5), radius: 15, x: 15, y: 15)
     }
