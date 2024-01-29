@@ -10,7 +10,12 @@ import Moya
 import CombineMoya
 import Combine
 
-class GithubContentService{
+protocol GithubContentServiceProtocol {
+    func treeItemsForDirectory(dir: String) -> AnyPublisher<[TreeItem], MoyaError>
+    func fetchContent(url: String) -> AnyPublisher<Data, MoyaError>
+}
+
+class GithubContentService: GithubContentServiceProtocol {
     let provider = MoyaProvider<DecksService>()
     
     func treeItemsForDirectory(dir: String) -> AnyPublisher<[TreeItem], MoyaError> {
@@ -24,29 +29,4 @@ class GithubContentService{
             .map { $0.data }
             .eraseToAnyPublisher()
     }
-}
-
-struct TreeItem: Codable {
-    let name: String
-    let path: String
-    let type: String
-    let downloadUrl: String?
-    
-    var isDirectory: Bool {
-        type == "dir"
-    }
-    
-    var isFile: Bool {
-        type == "file"
-    }
-    
-    private enum CodingKeys : String, CodingKey {
-        case name, path, type, downloadUrl = "download_url"
-    }
-}
-
-struct Course {
-    let id: String
-    let name: String
-    let imageUrl: String?
 }

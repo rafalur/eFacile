@@ -39,7 +39,7 @@ struct CoursesView: View {
     
     var coursesScrollView: some View {
         ScrollView {
-            VStack(spacing: 40) {
+            VStack(spacing: 30) {
                 ForEach(viewModel.courses, id: \.id) { course in
                     NavigationLink.init(value: 1) {
                         CourseView(course: course) {

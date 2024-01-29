@@ -9,14 +9,13 @@ import Foundation
 import Combine
 
 class CoursesViewModel: ObservableObject {
-    private let coursesProvider: CoursesProvider
-    
     @Published var courses = [Course]()
+
+    private let coursesProvider: CoursesProviderProtocol
     private var loadTriggerSubject = PassthroughSubject<Void, Never>()
-    
-    var subscriptions: Set<AnyCancellable> = .init()
+    private var subscriptions: Set<AnyCancellable> = .init()
         
-    init(coursesProvider: CoursesProvider = CoursesProvider()) {
+    init(coursesProvider: CoursesProviderProtocol = CoursesProvider()) {
         self.coursesProvider = coursesProvider
         
         setupSubscriptions()

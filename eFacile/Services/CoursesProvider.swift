@@ -15,7 +15,11 @@ enum CoursesFetchError: Error {
     case fileDownloadFailure
 }
 
-class CoursesProvider {
+protocol CoursesProviderProtocol {
+    func fetchCourses() -> AnyPublisher<[Course], CoursesFetchError>
+}
+
+class CoursesProvider: CoursesProviderProtocol {
     enum Constants {
         static let coursesDir = "groups"
         static let courseNameKey = "group_name"
@@ -24,7 +28,11 @@ class CoursesProvider {
         static let imageFileUrlNameKey = "image_file_url"
     }
     
-    let ghContentService = GithubContentService()
+    let ghContentService: GithubContentServiceProtocol
+    
+    init(ghContentService: GithubContentServiceProtocol = GithubContentService()) {
+        self.ghContentService = ghContentService
+    }
     
     func fetchCourses() -> AnyPublisher<[Course], CoursesFetchError> {
         ghContentService.treeItemsForDirectory(dir: Constants.coursesDir)

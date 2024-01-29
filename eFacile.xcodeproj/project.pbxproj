@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52938DA2B67EF31001FA9CB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938D92B67EF31001FA9CB /* Course.swift */; };
+		B52938DC2B67EF47001FA9CB /* TreeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938DB2B67EF47001FA9CB /* TreeItem.swift */; };
 		B57CBC492B6539BB00F66607 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B57CBC482B6539BB00F66607 /* CombineMoya */; };
 		B57CBC4B2B6539BB00F66607 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B57CBC4A2B6539BB00F66607 /* Moya */; };
 		B57CBC4E2B6539F800F66607 /* DecksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57CBC4D2B6539F800F66607 /* DecksService.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B52938D92B67EF31001FA9CB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		B52938DB2B67EF47001FA9CB /* TreeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeItem.swift; sourceTree = "<group>"; };
 		B57CBC4D2B6539F800F66607 /* DecksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksService.swift; sourceTree = "<group>"; };
 		B57CBC4F2B6669C600F66607 /* GithubContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubContentService.swift; sourceTree = "<group>"; };
 		B57CBC522B66EAF400F66607 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */,
 				B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */,
 				B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */,
+				B52938D92B67EF31001FA9CB /* Course.swift */,
+				B52938DB2B67EF47001FA9CB /* TreeItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 				B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */,
 				B5A9A2512B57223B0015A98B /* DecksListViewModel.swift in Sources */,
 				B5BAAA5A2B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift in Sources */,
+				B52938DA2B67EF31001FA9CB /* Course.swift in Sources */,
 				B5A9A26F2B5C1A030015A98B /* RepetitionsProviderMock.swift in Sources */,
 				B57CBC592B6790D300F66607 /* Lines+Dictionary.swift in Sources */,
 				B57CBC502B6669C600F66607 /* GithubContentService.swift in Sources */,
@@ -512,6 +519,7 @@
 				B5A9A26C2B5C15850015A98B /* RepetitionsProvider.swift in Sources */,
 				B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */,
 				B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */,
+				B52938DC2B67EF47001FA9CB /* TreeItem.swift in Sources */,
 				B57CBC552B66EB2300F66607 /* CoursesViewModel.swift in Sources */,
 				B5BAAA5C2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift in Sources */,
 				B5A9A2712B5C277A0015A98B /* FilesHelper.swift in Sources */,
