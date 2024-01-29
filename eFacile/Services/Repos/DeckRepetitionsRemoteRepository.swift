@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Moya
+import Combine
 
 class DeckRepetitionsRemoteRepository: DeckRepetitionsProviderProtocol {
     let baseURL = "https://raw.githubusercontent.com/rafalur/Piacere_decks/main/"
@@ -52,20 +54,88 @@ class DeckRepetitionsRemoteRepository: DeckRepetitionsProviderProtocol {
         return .init(deckInfo: deck.info, repetitions: repetitions)
     }
     
+    var a = GithubContentService()
+    var cancellables = Set<AnyCancellable>()
+    
+    func fetchCourses() -> AnyPublisher<[Course], MoyaError> {
+        a.treeItemsForDirectory(dir: "groups")
+            .map { $0.filter{ item in item.type == "dir" } }
+            .flatMap { dirs in dirs.publisher }
+            .flatMap { dir in
+                print("fetch content of \(dir.name)")
+                return self.aaa(groupName: dir.name)
+            }
+            .print("==== aaaa")
+            .collect()
+            .eraseToAnyPublisher()
+            
+    }
+    
+    func aaa(groupName: String) -> AnyPublisher <Course, MoyaError> {
+       return a.treeItemsForDirectory(dir: "groups/\(groupName)")
+            .compactMap { items in
+                return items.first { item in item.name == "index.txt" }?.downloadUrl
+            }
+            // Output: TreeItem
+            .compactMap { URL(string: $0) }
+            .flatMap { url in
+                return self.downloadFile(url: url)
+            }
+            .compactMap { String(data: $0, encoding: .utf8) }
+            .compactMap { [weak self] content in
+                return self?.parseGroupName(content: content)
+            }
+            .map { Course(id: groupName, name: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func downloadFile(url: URL) -> AnyPublisher<Data, MoyaError> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .mapError { _ in
+                return MoyaError.requestMapping("")
+            }
+            .eraseToAnyPublisher()
+
+    }
+    
+    private func parseGroupName(content: String) -> String? {
+        guard let firstLine = content.components(separatedBy: .newlines).first else { return nil}
+                        
+        let pattern = "\"group_name\"\\s*,\\s*\"(.*?)\""
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        
+            if let match = regex.firstMatch(in: firstLine, options: [], range: NSRange(location: 0, length: firstLine.count)) {
+                let name = String(firstLine[Range(match.range(at: 1), in: firstLine)!])
+
+                return name
+            }
+            return nil
+    }
+
     
     func deckIds() async -> [String] {
-        print("==== fetching deck ids")
-
-        let url = "\(baseURL)/\(italianPath)/\(indexFileName)"
-        let content = try? String(contentsOf: URL(string: url)!)
-
-        let lines = content?.components(separatedBy: .newlines) ?? []
-
-        let deckIds = lines.map { $0.replacingOccurrences(of: "\"", with: "") }
-            .filter { !$0.isEmpty }
-                
-        print("==== IDS: \(deckIds)")
-
-        return deckIds
+        
+        print("==== fetch deck ids")
+        fetchCourses()
+            .sink(receiveCompletion: { _ in}) { treeItem in
+                print("treee items: \(treeItem)")
+            }
+            .store(in: &cancellables)
+        
+        return []
+//        print("==== fetching deck ids")
+//
+//        let url = "\(baseURL)/\(italianPath)/\(indexFileName)"
+//        let content = try? String(contentsOf: URL(string: url)!)
+//
+//        let lines = content?.components(separatedBy: .newlines) ?? []
+//
+//        let deckIds = lines.map { $0.replacingOccurrences(of: "\"", with: "") }
+//            .filter { !$0.isEmpty }
+//
+//        print("==== IDS: \(deckIds)")
+//
+//        return deckIds
     }
 }

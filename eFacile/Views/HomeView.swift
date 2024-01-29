@@ -18,11 +18,13 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            DecksListView(viewModel: .init(repetitionsProvider: Dependencies.shared.repetitionsProvider ))
-                .navigationDestination(for: DeckRepetitions.self) { deckRepetitions in
-                    LearningView(viewModel: .init(deckRepetitions: deckRepetitions, repetitionsProvider: Dependencies.shared.repetitionsProvider))
-                        .toolbarBackground(.hidden, for: .navigationBar)
-                }
+            
+            CoursesView(viewModel: .init())
+//            DecksListView(viewModel: .init(repetitionsProvider: Dependencies.shared.repetitionsProvider ))
+//                .navigationDestination(for: DeckRepetitions.self) { deckRepetitions in
+//                    LearningView(viewModel: .init(deckRepetitions: deckRepetitions, repetitionsProvider: Dependencies.shared.repetitionsProvider))
+//                        .toolbarBackground(.hidden, for: .navigationBar)
+//                }
                 .navigationDestination(for: DeckPreviewData.self) { data in
                     DeckPreviewView(previewData: data)
                         .toolbarBackground(.hidden, for: .navigationBar)
