@@ -9,14 +9,14 @@ import Foundation
 
 
 class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
-    func fetchDeckRepetitions(deckId: String) async -> DeckRepetitions? {
+    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions? {
         print("==== fetching deck: \(deckId)")
         
         return loadFromCSV(deckId: deckId)
     }
     
-    private func loadRepetitions(decksIds: [String]) async -> [DeckRepetitions] {
-        var repetitions: [DeckRepetitions] = .init()
+    private func loadRepetitions(decksIds: [String]) async -> [DeckWithRepetitions] {
+        var repetitions: [DeckWithRepetitions] = .init()
 
         for deckId in decksIds {
             if let loadedRepetitions = self.loadFromCSV(deckId: deckId) {
@@ -27,8 +27,8 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         return repetitions
     }
     
-    func save(repetitions: DeckRepetitions) {
-        saveToCSV(repetitionResults: repetitions.repetitions, deckInfo: repetitions.deckInfo)
+    func save(repetitions: DeckWithRepetitions) {
+        saveToCSV(repetitionResults: repetitions.cardsWithRepetitions, deckInfo: repetitions.deckInfo)
     }
     
     func save(deckIds: [String]) {
@@ -71,7 +71,7 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         return deckIds
     }
     
-    private func saveToCSV(repetitionResults: [CardRepetitionsResult], deckInfo: DeckInfo) {
+    private func saveToCSV(repetitionResults: [CardWithRepetitions], deckInfo: DeckInfo) {
         let fileName = "\(deckInfo.id)_results.csv"
         
         guard let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(fileName) as NSURL else {
@@ -91,7 +91,7 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         }
     }
     
-    private func loadFromCSV(deckId: String) -> DeckRepetitions? {
+    private func loadFromCSV(deckId: String) -> DeckWithRepetitions? {
         let fileName = "\(deckId)_results.csv"
         
         guard let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(fileName) as URL else {
@@ -123,11 +123,11 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
                 
                 let scores = Array(parts.dropFirst(2)).compactMap { Int($0) }
                 
-                return CardRepetitionsResult(card: card, lastScores: scores)
+                return CardWithRepetitions(card: card, lastScores: scores)
             }
             return nil
         }
 
-        return .init(deckInfo: .init(id: deckId, name: deckName), repetitions: results)
+        return .init(deckInfo: .init(id: deckId, name: deckName), cardsWithRepetitions: results)
     }
 }

@@ -20,6 +20,10 @@ struct HomeView: View {
         NavigationStack {
             
             CoursesView(viewModel: .init())
+                            .navigationDestination(for: Course.self) { course in
+                                DecksListView(viewModel: .init(course: course))
+                                    .toolbarBackground(.hidden, for: .navigationBar)
+                            }
 //            DecksListView(viewModel: .init(repetitionsProvider: Dependencies.shared.repetitionsProvider ))
 //                .navigationDestination(for: DeckRepetitions.self) { deckRepetitions in
 //                    LearningView(viewModel: .init(deckRepetitions: deckRepetitions, repetitionsProvider: Dependencies.shared.repetitionsProvider))

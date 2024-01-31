@@ -158,7 +158,7 @@ struct LearningView: View {
 }
 
 struct CardView: View {
-    let cardRepetition: CardRepetitionsResult
+    let cardRepetition: CardWithRepetitions
     let showTranslation: Bool
     
     var body: some View {

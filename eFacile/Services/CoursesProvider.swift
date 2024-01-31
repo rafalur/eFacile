@@ -10,6 +10,22 @@ import Combine
 import Moya
 import CombineMoya
 
+struct DecsRepoFileStructure {
+    enum Constants {
+        static let coursesDir = "groups"
+        static let courseNameKey = "group_name"
+        static let indexFileName = "index.txt"
+        static let imageFileNameKey = "image_file_name"
+        static let imageFileUrlNameKey = "image_file_url"
+        static let decksDirName = "decks"
+        static let orderFileName = "order.txt"
+    }
+    
+    static func decksPath(forCourse course: Course) -> String {
+        return "\(Constants.coursesDir)/\(course.id)/\(Constants.decksDirName)"
+    }
+}
+
 enum CoursesFetchError: Error {
     case serviceConnectionFailure
     case fileDownloadFailure
@@ -35,7 +51,7 @@ class CoursesProvider: CoursesProviderProtocol {
     }
     
     func fetchCourses() -> AnyPublisher<[Course], CoursesFetchError> {
-        ghContentService.treeItemsForDirectory(dir: Constants.coursesDir)
+        ghContentService.treeItemsForDirectory(path: Constants.coursesDir)
             .mapError { _ in CoursesFetchError.serviceConnectionFailure }
             .map { $0.filter{ item in item.isDirectory} }
             .flatMap { dirs in dirs.publisher }
@@ -49,7 +65,7 @@ class CoursesProvider: CoursesProviderProtocol {
     }
     
     func fetchCourse(courseName: String) -> AnyPublisher <Course, CoursesFetchError> {
-        return ghContentService.treeItemsForDirectory(dir: "\(Constants.coursesDir)/\(courseName)")
+        return ghContentService.treeItemsForDirectory(path: "\(Constants.coursesDir)/\(courseName)")
             .mapError { _ in CoursesFetchError.serviceConnectionFailure }
             .map { treeItems in treeItems.filter { $0.isFile } }
             .flatMap { [weak self] treeItems -> AnyPublisher<[String: String], CoursesFetchError> in

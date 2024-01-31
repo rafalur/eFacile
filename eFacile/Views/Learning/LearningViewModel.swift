@@ -19,7 +19,7 @@ class LearningViewModel: ObservableObject {
     
     @Published var waitingForUserInput: Bool = false
     @Published var score: Int?
-    @Published var currentRepetition: CardRepetitionsResult? {
+    @Published var currentRepetition: CardWithRepetitions? {
         didSet {
             state = .displaySentence
         }
@@ -51,13 +51,13 @@ class LearningViewModel: ObservableObject {
         return 0
     }
     
-    private var deckRepetitions: DeckRepetitions
+    private var deckRepetitions: DeckWithRepetitions
     private var currentSentenceIndex = 0
     private let repetitionsProvider: RepetitionsProviderProtocol
     private var repetitionsSession: RepetitionsSession?
     private var sessionManager: RepetitionsSessionManagerProtocol
     
-    init (deckRepetitions: DeckRepetitions,
+    init (deckRepetitions: DeckWithRepetitions,
           repetitionsProvider: RepetitionsProviderProtocol,
           sessionManager: RepetitionsSessionManagerProtocol = RepetitionsSessionManager()) {
         self.deckRepetitions = deckRepetitions
@@ -95,7 +95,7 @@ class LearningViewModel: ObservableObject {
     }
      
     private func updateResultsWithScoreForCurrentSentence(_ score: Int) {
-        var newCardRepetitions = deckRepetitions.repetitions
+        var newCardRepetitions = deckRepetitions.cardsWithRepetitions
         
         if let index = newCardRepetitions.firstIndex(where: { $0.card == currentRepetition?.card }) {
             let previousResult = newCardRepetitions.remove(at: index)
@@ -104,17 +104,17 @@ class LearningViewModel: ObservableObject {
                 lastScores = Array(lastScores.dropFirst())
             }
             lastScores.append(score)
-            let newResult = CardRepetitionsResult(card: previousResult.card,
+            let newResult = CardWithRepetitions(card: previousResult.card,
                                                       lastScores: lastScores)
             newCardRepetitions.insert(newResult, at: index)
         }
         
-        deckRepetitions = .init(deckInfo: deckRepetitions.deckInfo, repetitions: newCardRepetitions)
+        deckRepetitions = .init(deckInfo: deckRepetitions.deckInfo, cardsWithRepetitions: newCardRepetitions)
     }
     
     private func startSession() {
         sessionResults = .init()
-        let toRepeat = sessionManager.generateRepetitions(maxNumber: 10, forCurrentResults: deckRepetitions.repetitions)
+        let toRepeat = sessionManager.generateRepetitions(maxNumber: 10, forCurrentResults: deckRepetitions.cardsWithRepetitions)
         repetitionsSession = .init(repetitions: toRepeat)
         loadRandomSentence()
     }
@@ -135,7 +135,7 @@ class LearningViewModel: ObservableObject {
     }
 }
 
-extension Array where Element == CardRepetitionsResult {
+extension Array where Element == CardWithRepetitions {
     var debugDescription: String {
         var description = ""
         let sorted = self//.sorted { $0.totalScore > $1.totalScore }

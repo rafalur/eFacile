@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RepetitionDebugView: View {
-    let result: CardRepetitionsResult
+    let result: CardWithRepetitions
     let remainingCount: Int
     var body: some View {
         HStack {

@@ -28,7 +28,7 @@ struct DeckPreviewView: View {
             
             ScrollView {
                 VStack(spacing: 0) {
-                    ForEach(previewData.repetitions.repetitions, id: \.card.id) { cardRepetitions in
+                    ForEach(previewData.repetitions.cardsWithRepetitions, id: \.card.id) { cardRepetitions in
                         CardRow(cardRepetitions: cardRepetitions)
                             .background(Theme.colors.background)
                     }
@@ -41,7 +41,7 @@ struct DeckPreviewView: View {
 }
 
 struct CardRow: View {
-    let cardRepetitions: CardRepetitionsResult
+    let cardRepetitions: CardWithRepetitions
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -68,10 +68,10 @@ struct CardRow: View {
 
 struct DeckPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        let repetitions: [CardRepetitionsResult] = [
+        let repetitions: [CardWithRepetitions] = [
             .init(card: .init(native: "Hello", translation: "Halo"), lastScores: [1,2,5]),
             .init(card: .init(native: "Ble", translation: "Bla"), lastScores: [4,4,4,4,4])
         ]
-        DeckPreviewView(previewData: .init(repetitions: .init(deckInfo: .init(id: "", name: "Podstawowe wyrażenia"), repetitions: repetitions)))
+        DeckPreviewView(previewData: .init(repetitions: .init(deckInfo: .init(id: "", name: "Podstawowe wyrażenia"), cardsWithRepetitions: repetitions)))
     }
 }

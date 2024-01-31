@@ -10,34 +10,34 @@ import Foundation
 
 
 protocol RepetitionsSessionManagerProtocol {
-    func generateRepetitions(maxNumber: Int, forCurrentResults: [CardRepetitionsResult]) -> [CardRepetitionsResult]
+    func generateRepetitions(maxNumber: Int, forCurrentResults: [CardWithRepetitions]) -> [CardWithRepetitions]
 }
 
 struct RepetitionGroups {
-    let wellKnown: [CardRepetitionsResult]
-    let moderatelyKnown: [CardRepetitionsResult]
-    let poorlyKnown: [CardRepetitionsResult]
+    let wellKnown: [CardWithRepetitions]
+    let moderatelyKnown: [CardWithRepetitions]
+    let poorlyKnown: [CardWithRepetitions]
 }
 
 struct RepetitionsSession {
-    var repetitions: [CardRepetitionsResult]
+    var repetitions: [CardWithRepetitions]
     
     var remaining: Int {
         return repetitions.count
     }
     
-    init(repetitions: [CardRepetitionsResult]) {
+    init(repetitions: [CardWithRepetitions]) {
         self.repetitions = repetitions
     }
     
-    mutating func nextRepetition() -> CardRepetitionsResult? {
+    mutating func nextRepetition() -> CardWithRepetitions? {
         guard !repetitions.isEmpty else { return nil }
         return repetitions.removeFirst()
     }
 }
 
 class RepetitionsSessionManager: RepetitionsSessionManagerProtocol {
-    func generateRepetitions(maxNumber: Int, forCurrentResults results: [CardRepetitionsResult]) -> [CardRepetitionsResult] {
+    func generateRepetitions(maxNumber: Int, forCurrentResults results: [CardWithRepetitions]) -> [CardWithRepetitions] {
         let groups = createRepetitionGroups(forCurrentResults: results)
         
         var allWellKnown = groups.wellKnown.shuffled()
@@ -48,9 +48,9 @@ class RepetitionsSessionManager: RepetitionsSessionManagerProtocol {
         let expectedModeratelyKnown: Int = 4
         let expectedPoorlyKnown: Int = 4
         
-        var wellKnownToInclude = [CardRepetitionsResult]()
-        var moderatelyKnownToInclude = [CardRepetitionsResult]()
-        var poorlyKnownToInclude = [CardRepetitionsResult]()
+        var wellKnownToInclude = [CardWithRepetitions]()
+        var moderatelyKnownToInclude = [CardWithRepetitions]()
+        var poorlyKnownToInclude = [CardWithRepetitions]()
         
         for _ in 0...expectedWellKnown - 1 {
             if !allWellKnown.isEmpty {
@@ -86,7 +86,7 @@ class RepetitionsSessionManager: RepetitionsSessionManagerProtocol {
         return (wellKnownToInclude + moderatelyKnownToInclude + poorlyKnownToInclude).shuffled()
     }
     
-    private func createRepetitionGroups(forCurrentResults results: [CardRepetitionsResult]) -> RepetitionGroups {
+    private func createRepetitionGroups(forCurrentResults results: [CardWithRepetitions]) -> RepetitionGroups {
         let grouped = results.goupByAverage(maxAverage: 4, numberOfGroups: 3)
         
         return .init(wellKnown: grouped[safe: 2] ?? [],
@@ -95,11 +95,11 @@ class RepetitionsSessionManager: RepetitionsSessionManagerProtocol {
     }
 }
 
-extension Array where Element == CardRepetitionsResult {
-    func goupByAverage(maxAverage: Float, numberOfGroups: Int) -> [[CardRepetitionsResult]] {
+extension Array where Element == CardWithRepetitions {
+    func goupByAverage(maxAverage: Float, numberOfGroups: Int) -> [[CardWithRepetitions]] {
         guard self.count > 0 else { return .init() }
         
-        var grouped = [[CardRepetitionsResult]]()
+        var grouped = [[CardWithRepetitions]]()
         
         let sorted = self.sorted { $0.average < $1.average }
         

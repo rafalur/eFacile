@@ -7,23 +7,61 @@
 
 import Foundation
 import Combine
+import Moya
 
 protocol RepetitionsProviderProtocol {
-    func load(fetch: Bool) async
-    func updateRepetitions(_ repetitions: DeckRepetitions)
+    func load(fetch: Bool)
+    func updateRepetitions(_ repetitions: DeckWithRepetitions)
     
-    var repetitionsUpdated: AnyPublisher<[DeckRepetitions], Never> { get }
+    var repetitionsUpdated: AnyPublisher<[DeckWithRepetitions], Never> { get }
+}
+
+
+class RepetitionsProviderReactive: RepetitionsProviderProtocol, ObservableObject {
+    @Published var decks: [DeckWithRepetitions] = .init()
+    
+    let fetchTriggerer: PassthroughSubject<Void, Never> = .init()
+    
+    let repetitionsRepo = DeckRepetitionsProvider2()
+    
+    private let course: Course
+    
+    init(course: Course) {
+        self.course = course
+        
+        setupSubscriptions()
+    }
+
+    var repetitionsUpdated: AnyPublisher<[DeckWithRepetitions], Never> {
+        return $decks.eraseToAnyPublisher()
+    }
+    
+    func load(fetch: Bool) {
+        fetchTriggerer.send()
+    }
+    
+    func updateRepetitions(_ repetitions: DeckWithRepetitions) {
+        
+    }
+    
+    private func setupSubscriptions() {
+        
+        repetitionsRepo.fetchDecksWithRepetitions(forCourse: course)
+            .catch { _ in Just<[DeckWithRepetitions]>.init([]) }
+            .assign(to: &$decks)
+
+    }
 }
 
 class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
-    var repetitionsUpdated: AnyPublisher<[DeckRepetitions], Never> {
+    var repetitionsUpdated: AnyPublisher<[DeckWithRepetitions], Never> {
         return $cachedRepetitions.eraseToAnyPublisher()
     }
     
     private let decksRemoteRepo: DeckRepetitionsProviderProtocol
     private let decksLocalRepo: DeckRepetitionsRepositoryProtocol
     
-    @Published var cachedRepetitions: [DeckRepetitions] = .init()
+    @Published var cachedRepetitions: [DeckWithRepetitions] = .init()
     
     init(decksRemoteRepo: DeckRepetitionsProviderProtocol = DeckRepetitionsRemoteRepository(),
          decksLocalRepo: DeckRepetitionsRepositoryProtocol = DeckRepetitionsLocalRepository()) {
@@ -31,19 +69,19 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
         self.decksLocalRepo = decksLocalRepo
     }
     
-    func load(fetch: Bool) async {
-        cachedRepetitions = []
-        if fetch {
-            cachedRepetitions = await loadFromRemote(mergeWitchCached: true)
-            cachedRepetitions.forEach {
-                self.decksLocalRepo.save(repetitions: $0)
-            }
-        } else {
-            cachedRepetitions = await loadRepetitions(repo: decksLocalRepo)
-        }
+    func load(fetch: Bool) {
+//        cachedRepetitions = []
+//        if fetch {
+//            cachedRepetitions = await loadFromRemote(mergeWitchCached: true)
+//            cachedRepetitions.forEach {
+//                self.decksLocalRepo.save(repetitions: $0)
+//            }
+//        } else {
+//            cachedRepetitions = await loadRepetitions(repo: decksLocalRepo)
+//        }
     }
         
-    func loadFromRemote(mergeWitchCached: Bool) async  -> [DeckRepetitions] {
+    func loadFromRemote(mergeWitchCached: Bool) async  -> [DeckWithRepetitions] {
         let repetitionsFromRemote = await loadRepetitions(repo: decksRemoteRepo)
         
         decksLocalRepo.save(deckIds: repetitionsFromRemote.map { $0.deckInfo.id } )
@@ -51,7 +89,7 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
         if mergeWitchCached {
             let cachedRepetitions = await loadRepetitions(repo: decksLocalRepo)
             
-            let updatedRepetitions: [DeckRepetitions] = repetitionsFromRemote.map { remote in
+            let updatedRepetitions: [DeckWithRepetitions] = repetitionsFromRemote.map { remote in
                 if let matchedCachedRepetitions = cachedRepetitions.first(where: { remote.deckInfo.id == $0.deckInfo.id }) {
                     return merge(deckRepetitions: remote, with: matchedCachedRepetitions)
                 } else {
@@ -65,10 +103,10 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
         }
     }
     
-    func loadRepetitions(repo: DeckRepetitionsProviderProtocol) async -> [DeckRepetitions] {
+    func loadRepetitions(repo: DeckRepetitionsProviderProtocol) async -> [DeckWithRepetitions] {
         let fetchedDeckIds = await repo.deckIds()
         
-        var fetchedRepetitions: [DeckRepetitions] = .init()
+        var fetchedRepetitions: [DeckWithRepetitions] = .init()
 
         for deckId in fetchedDeckIds {
             if let repetitions = await repo.fetchDeckRepetitions(deckId: deckId) {
@@ -78,7 +116,7 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
         return fetchedRepetitions
     }
     
-    func updateRepetitions(_ repetitions: DeckRepetitions) {
+    func updateRepetitions(_ repetitions: DeckWithRepetitions) {
         var newRepetitions = cachedRepetitions
         if let index = newRepetitions.firstIndex(where: { repetitions.deckInfo.id == $0.deckInfo.id }) {
             newRepetitions.remove(at: index)
@@ -89,11 +127,11 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
         cachedRepetitions = newRepetitions
     }
     
-    private func merge(deckRepetitions: DeckRepetitions, with other: DeckRepetitions) -> DeckRepetitions {
-        let cardRepetitionsFirst = deckRepetitions.repetitions
-        let cardRepetitionsOther = other.repetitions        
+    private func merge(deckRepetitions: DeckWithRepetitions, with other: DeckWithRepetitions) -> DeckWithRepetitions {
+        let cardRepetitionsFirst = deckRepetitions.cardsWithRepetitions
+        let cardRepetitionsOther = other.cardsWithRepetitions        
         
-        var mergedCardRepetitions: [CardRepetitionsResult] = .init()
+        var mergedCardRepetitions: [CardWithRepetitions] = .init()
         
         for cardRepetition in cardRepetitionsFirst {
             if let matching = cardRepetitionsOther.first(where: { $0.card == cardRepetition.card }),
@@ -104,6 +142,6 @@ class RepetitionsProvider: RepetitionsProviderProtocol, ObservableObject {
             }
         }
 
-        return .init(deckInfo: deckRepetitions.deckInfo, repetitions: mergedCardRepetitions)
+        return .init(deckInfo: deckRepetitions.deckInfo, cardsWithRepetitions: mergedCardRepetitions)
     }
 }

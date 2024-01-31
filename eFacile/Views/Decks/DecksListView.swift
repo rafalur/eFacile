@@ -67,7 +67,7 @@ struct DecksListView: View {
 
 
 struct DeckView: View {
-    let decksRepetitions: DeckRepetitions
+    let decksRepetitions: DeckWithRepetitions
     let onTap: () -> Void
     
     var body: some View {
@@ -83,7 +83,7 @@ struct DeckView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                     .foregroundColor(Theme.colors.accent)
-                Text("\(decksRepetitions.repetitions.count)")
+                Text("\(decksRepetitions.cardsWithRepetitions.count)")
                     .font(Theme.fonts.regular(16))
             }
             .padding(.bottom, 30)
@@ -121,12 +121,12 @@ struct DeckView: View {
 
 struct DeckList_Previews: PreviewProvider {
     static var previews: some View {
-        DecksListView(viewModel: .init())
+        DecksListView(viewModel: .init(course: .init(id: "1", name: "Test name", imageUrl: nil)))
     }
 }
 
 class DecksRepositoryMock: DeckRepetitionsRepositoryProtocol {
-    func save(repetitions: DeckRepetitions) {
+    func save(repetitions: DeckWithRepetitions) {
         
     }
     
@@ -138,10 +138,10 @@ class DecksRepositoryMock: DeckRepetitionsRepositoryProtocol {
         ["1", "2"]
     }
     
-    func fetchDeckRepetitions(deckId: String) async -> DeckRepetitions? {
+    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions? {
 
         return .init(deckInfo: .init(id: "1", name: "Podstawowe zwroty"),
-                     repetitions: Array(repeating:CardRepetitionsResult(card: .init(native: "a", translation: "b"), lastScores: [1,2,3,4,5]), count: 10))
+                     cardsWithRepetitions: Array(repeating:CardWithRepetitions(card: .init(native: "a", translation: "b"), lastScores: [1,2,3,4,5]), count: 10))
     }
 
 }

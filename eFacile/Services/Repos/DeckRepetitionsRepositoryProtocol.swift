@@ -8,11 +8,11 @@
 import Foundation
 
 protocol DeckRepetitionsRepositoryProtocol: DeckRepetitionsProviderProtocol {
-    func save(repetitions: DeckRepetitions)
+    func save(repetitions: DeckWithRepetitions)
     func save(deckIds: [String])
 }
 
 protocol DeckRepetitionsProviderProtocol {
     func deckIds() async -> [String]
-    func fetchDeckRepetitions(deckId: String) async -> DeckRepetitions?
+    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions?
 }

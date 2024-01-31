@@ -41,7 +41,7 @@ struct CoursesView: View {
         ScrollView {
             VStack(spacing: 30) {
                 ForEach(viewModel.courses, id: \.id) { course in
-                    NavigationLink.init(value: 1) {
+                    NavigationLink.init(value: course) {
                         CourseView(course: course) {
                             print("tapped")
                         }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B52938DA2B67EF31001FA9CB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938D92B67EF31001FA9CB /* Course.swift */; };
 		B52938DC2B67EF47001FA9CB /* TreeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938DB2B67EF47001FA9CB /* TreeItem.swift */; };
+		B52938DE2B6A3F4E001FA9CB /* FileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938DD2B6A3F4E001FA9CB /* FileParser.swift */; };
+		B52938E02B6A40B0001FA9CB /* DecksOrderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52938DF2B6A40B0001FA9CB /* DecksOrderer.swift */; };
 		B57CBC492B6539BB00F66607 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B57CBC482B6539BB00F66607 /* CombineMoya */; };
 		B57CBC4B2B6539BB00F66607 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B57CBC4A2B6539BB00F66607 /* Moya */; };
 		B57CBC4E2B6539F800F66607 /* DecksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57CBC4D2B6539F800F66607 /* DecksService.swift */; };
@@ -26,7 +28,7 @@
 		B5A9A25D2B59B5C60015A98B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A25C2B59B5C60015A98B /* Theme.swift */; };
 		B5A9A2632B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */; };
 		B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */; };
-		B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */; };
+		B5A9A2682B5AA0970015A98B /* DeckWithRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2672B5AA0970015A98B /* DeckWithRepetitions.swift */; };
 		B5A9A26A2B5AA69E0015A98B /* DeckInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */; };
 		B5A9A26C2B5C15850015A98B /* RepetitionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */; };
 		B5A9A26F2B5C1A030015A98B /* RepetitionsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9A26E2B5C1A030015A98B /* RepetitionsProviderMock.swift */; };
@@ -49,7 +51,7 @@
 		B5F1E6842B4BE9B200DB5A64 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6832B4BE9B200DB5A64 /* LearningView.swift */; };
 		B5F1E6872B4BEA1F00DB5A64 /* LearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6862B4BEA1F00DB5A64 /* LearningViewModel.swift */; };
 		B5F1E68A2B4BEAAC00DB5A64 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */; };
-		B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */; };
+		B5F1E68C2B4BEAD300DB5A64 /* CardWithRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E68B2B4BEAD300DB5A64 /* CardWithRepetitions.swift */; };
 		B5F1E6912B4C04B000DB5A64 /* TeacherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */; };
 		B5F1E6932B4C571C00DB5A64 /* RepetitionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1E6922B4C571C00DB5A64 /* RepetitionDebugView.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 /* Begin PBXFileReference section */
 		B52938D92B67EF31001FA9CB /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B52938DB2B67EF47001FA9CB /* TreeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeItem.swift; sourceTree = "<group>"; };
+		B52938DD2B6A3F4E001FA9CB /* FileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileParser.swift; sourceTree = "<group>"; };
+		B52938DF2B6A40B0001FA9CB /* DecksOrderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksOrderer.swift; sourceTree = "<group>"; };
 		B57CBC4D2B6539F800F66607 /* DecksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksService.swift; sourceTree = "<group>"; };
 		B57CBC4F2B6669C600F66607 /* GithubContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubContentService.swift; sourceTree = "<group>"; };
 		B57CBC522B66EAF400F66607 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
@@ -89,7 +93,7 @@
 		B5A9A25C2B59B5C60015A98B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B5A9A2622B59C2BA0015A98B /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		B5A9A2652B5A6C250015A98B /* PieChartProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartProgressView.swift; sourceTree = "<group>"; };
-		B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepetitions.swift; sourceTree = "<group>"; };
+		B5A9A2672B5AA0970015A98B /* DeckWithRepetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckWithRepetitions.swift; sourceTree = "<group>"; };
 		B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckInfo.swift; sourceTree = "<group>"; };
 		B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsProvider.swift; sourceTree = "<group>"; };
 		B5A9A26E2B5C1A030015A98B /* RepetitionsProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsProviderMock.swift; sourceTree = "<group>"; };
@@ -116,7 +120,7 @@
 		B5F1E6832B4BE9B200DB5A64 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		B5F1E6862B4BEA1F00DB5A64 /* LearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewModel.swift; sourceTree = "<group>"; };
 		B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
-		B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepetitionsResult.swift; sourceTree = "<group>"; };
+		B5F1E68B2B4BEAD300DB5A64 /* CardWithRepetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithRepetitions.swift; sourceTree = "<group>"; };
 		B5F1E6902B4C04B000DB5A64 /* TeacherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTests.swift; sourceTree = "<group>"; };
 		B5F1E6922B4C571C00DB5A64 /* RepetitionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionDebugView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +225,7 @@
 				B5A9A24B2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift */,
 				B5BAAA592B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift */,
 				B5BAAA5B2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift */,
+				B52938DF2B6A40B0001FA9CB /* DecksOrderer.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -330,10 +335,10 @@
 			isa = PBXGroup;
 			children = (
 				B5F1E6892B4BEAAC00DB5A64 /* Sentence.swift */,
-				B5F1E68B2B4BEAD300DB5A64 /* CardRepetitionsResult.swift */,
+				B5F1E68B2B4BEAD300DB5A64 /* CardWithRepetitions.swift */,
 				B5A9A2522B5724390015A98B /* Card.swift */,
 				B5A9A2542B5727B20015A98B /* Deck.swift */,
-				B5A9A2672B5AA0970015A98B /* DeckRepetitions.swift */,
+				B5A9A2672B5AA0970015A98B /* DeckWithRepetitions.swift */,
 				B5A9A2692B5AA69E0015A98B /* DeckInfo.swift */,
 				B5A9A2782B5D30F00015A98B /* DeckPreviewData.swift */,
 				B52938D92B67EF31001FA9CB /* Course.swift */,
@@ -350,6 +355,7 @@
 				B5F1E67C2B4B053600DB5A64 /* RepetitionsSessionManager.swift */,
 				B5A9A26B2B5C15840015A98B /* RepetitionsProvider.swift */,
 				B57CBC562B678C2000F66607 /* CoursesProvider.swift */,
+				B52938DD2B6A3F4E001FA9CB /* FileParser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -501,10 +507,11 @@
 				B5F1E67D2B4B053600DB5A64 /* RepetitionsSessionManager.swift in Sources */,
 				B5A9A2572B572CDE0015A98B /* HomeView.swift in Sources */,
 				B57CBC572B678C2000F66607 /* CoursesProvider.swift in Sources */,
+				B52938E02B6A40B0001FA9CB /* DecksOrderer.swift in Sources */,
 				B5A9A26A2B5AA69E0015A98B /* DeckInfo.swift in Sources */,
 				B5F1E64D2B44BAD800DB5A64 /* EFacileApp.swift in Sources */,
 				B5A9A2532B5724390015A98B /* Card.swift in Sources */,
-				B5F1E68C2B4BEAD300DB5A64 /* CardRepetitionsResult.swift in Sources */,
+				B5F1E68C2B4BEAD300DB5A64 /* CardWithRepetitions.swift in Sources */,
 				B5A9A2512B57223B0015A98B /* DecksListViewModel.swift in Sources */,
 				B5BAAA5A2B60FBE700EA802F /* DeckRepetitionsRemoteRepository.swift in Sources */,
 				B52938DA2B67EF31001FA9CB /* Course.swift in Sources */,
@@ -516,9 +523,10 @@
 				B5F1E6842B4BE9B200DB5A64 /* LearningView.swift in Sources */,
 				B5A9A24C2B5720B60015A98B /* DeckRepetitionsRepositoryProtocol.swift in Sources */,
 				B57CBC4E2B6539F800F66607 /* DecksService.swift in Sources */,
+				B52938DE2B6A3F4E001FA9CB /* FileParser.swift in Sources */,
 				B5A9A26C2B5C15850015A98B /* RepetitionsProvider.swift in Sources */,
 				B5A9A2662B5A6C250015A98B /* PieChartProgressView.swift in Sources */,
-				B5A9A2682B5AA0970015A98B /* DeckRepetitions.swift in Sources */,
+				B5A9A2682B5AA0970015A98B /* DeckWithRepetitions.swift in Sources */,
 				B52938DC2B67EF47001FA9CB /* TreeItem.swift in Sources */,
 				B57CBC552B66EB2300F66607 /* CoursesViewModel.swift in Sources */,
 				B5BAAA5C2B60FC1C00EA802F /* DeckRepetitionsLocalRepository.swift in Sources */,

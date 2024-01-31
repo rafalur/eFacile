@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardRepetitionsResult: Equatable, Hashable {
+struct CardWithRepetitions: Equatable, Hashable {
     let card: Card
     let lastScores: [Int]
     

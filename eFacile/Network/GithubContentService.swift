@@ -11,15 +11,20 @@ import CombineMoya
 import Combine
 
 protocol GithubContentServiceProtocol {
-    func treeItemsForDirectory(dir: String) -> AnyPublisher<[TreeItem], MoyaError>
+    func treeItemsForDirectory(path: String) -> AnyPublisher<[TreeItem], MoyaError>
     func fetchContent(url: String) -> AnyPublisher<Data, MoyaError>
 }
 
 class GithubContentService: GithubContentServiceProtocol {
     let provider = MoyaProvider<DecksService>()
     
-    func treeItemsForDirectory(dir: String) -> AnyPublisher<[TreeItem], MoyaError> {
-       return provider.requestPublisher(.dirContent(directory: dir))
+    func treeItemsForDirectory(path: String) -> AnyPublisher<[TreeItem], MoyaError> {
+        print("==== fetching tree items for dir: \(path)")
+        return provider.requestPublisher(.dirContent(directory: path))
+            .map {
+                print("aaaa \(String(data: $0.data, encoding: .utf8))")
+                return $0
+            }.eraseToAnyPublisher()
             .map([TreeItem].self)
             .eraseToAnyPublisher()
     }

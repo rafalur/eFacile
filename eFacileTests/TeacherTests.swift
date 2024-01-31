@@ -12,7 +12,7 @@ import XCTest
 final class TeacherTests: XCTestCase {
 
     func testExample() throws {
-        let inputRepetitions: [CardRepetitionsResult] =  [
+        let inputRepetitions: [CardWithRepetitions] =  [
             .init(sentence: .init(native: "1", translation: "1"), numberOfRepetitions: 1, totalScore: 1),
             .init(sentence: .init(native: "2", translation: "1"), numberOfRepetitions: 2, totalScore: 2),
             .init(sentence: .init(native: "3", translation: "1"), numberOfRepetitions: 3, totalScore: 6),
@@ -40,8 +40,8 @@ final class TeacherTests: XCTestCase {
 
     }
     
-    private func createRepetitions(count: Int) -> [CardRepetitionsResult] {
-        var results = [CardRepetitionsResult] ()
+    private func createRepetitions(count: Int) -> [CardWithRepetitions] {
+        var results = [CardWithRepetitions] ()
         
         var increaseFactor: Int = 1
         

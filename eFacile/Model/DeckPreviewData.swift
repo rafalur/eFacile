@@ -8,5 +8,5 @@
 import Foundation
 
 struct DeckPreviewData: Equatable, Hashable {
-    let repetitions: DeckRepetitions
+    let repetitions: DeckWithRepetitions
 }

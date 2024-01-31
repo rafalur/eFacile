@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Course {
+struct Course: Equatable, Hashable {
     let id: String
     let name: String
     let imageUrl: String?
