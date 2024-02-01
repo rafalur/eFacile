@@ -25,12 +25,13 @@ struct HomeView: View {
                                     .toolbarBackground(.hidden, for: .navigationBar)
                             }
 //            DecksListView(viewModel: .init(repetitionsProvider: Dependencies.shared.repetitionsProvider ))
-//                .navigationDestination(for: DeckRepetitions.self) { deckRepetitions in
-//                    LearningView(viewModel: .init(deckRepetitions: deckRepetitions, repetitionsProvider: Dependencies.shared.repetitionsProvider))
-//                        .toolbarBackground(.hidden, for: .navigationBar)
-//                }
+
                 .navigationDestination(for: DeckPreviewData.self) { data in
                     DeckPreviewView(previewData: data)
+                        .toolbarBackground(.hidden, for: .navigationBar)
+                }
+                .navigationDestination(for: RepeatSessionData.self) { data in
+                    LearningView(viewModel: .init(data: data, repetitionsProvider: Dependencies.shared.repetitionsProvider))
                         .toolbarBackground(.hidden, for: .navigationBar)
                 }
                 .toolbar {

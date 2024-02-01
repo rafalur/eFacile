@@ -8,9 +8,7 @@
 import SwiftUI
 
 @main
-struct EFacileApp: App {
-    let decksRepo = DeckRepetitionsRemoteRepository()
-    
+struct EFacileApp: App {    
     var body: some Scene {
         WindowGroup {
             HomeView()

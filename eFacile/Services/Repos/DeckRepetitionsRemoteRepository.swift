@@ -62,7 +62,8 @@ class DeckRepetitionsProvider2 {
                     CardWithRepetitions(card: .init(native: $0.key, translation: $0.value), lastScores: [])
                 }
                 
-                return DeckWithRepetitions.init(deckInfo: .init(id: treeItem.name, name: headerWithPairs.header), cardsWithRepetitions: cardRepetitions)
+                let deckId = treeItem.name.replacingOccurrences(of: ".csv", with: "")
+                return DeckWithRepetitions.init(deckInfo: .init(id: deckId, name: headerWithPairs.header), cardsWithRepetitions: cardRepetitions)
             }
             .eraseToAnyPublisher()
     }
@@ -88,86 +89,86 @@ class DeckRepetitionsProvider2 {
     }
 }
 
-
-class DeckRepetitionsRemoteRepository: DeckRepetitionsProviderProtocol {
-    let baseURL = "https://raw.githubusercontent.com/rafalur/Piacere_decks/main/"
-    let italianPath = "italian"
-    let indexFileName = "index.txt"
-
-    private let predefinedDeckIds: [String]
-    init(deckIds: [String] = []) {
-        self.predefinedDeckIds = deckIds
-    }
-
-    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions? {
-        print("==== fetching deck: \(deckId)")
-        let url = "\(baseURL)/\(italianPath)/\(deckId).csv"
-        let content = try? String(contentsOf: URL(string: url)!)
-
-        print("==== fetched content: \(content)")
-
-        var lines = content?.components(separatedBy: .newlines) ?? []
-        
-        let deckName = lines.removeFirst().replacingOccurrences(of: "\"", with: "")
-        
-        let pattern = "\"(.*?)\"\\s*,\\s*\"(.*?)\""
-        let regex = try! NSRegularExpression(pattern: pattern, options: [])
-        
-        let cards = lines.compactMap {
-            if let match = regex.firstMatch(in: $0, options: [], range: NSRange(location: 0, length: $0.count)) {
-                let native = String($0[Range(match.range(at: 1), in: $0)!])
-                let translation = String($0[Range(match.range(at: 2), in: $0)!])
-
-                let card = Card(native: native, translation: translation)
-                return card
-            }
-            return nil
-        }
-        
-        let deck = Deck(info: .init(id: deckId, name: deckName), cards: cards)
-        
-        return generateInitialRepetitions(deck: deck)
-    }
-    
-    private func generateInitialRepetitions(deck: Deck) -> DeckWithRepetitions {
-        let repetitions = deck.cards.map { CardWithRepetitions(card: $0, lastScores: []) }
-        return .init(deckInfo: deck.info, cardsWithRepetitions: repetitions)
-    }
-        
-    func downloadFile(url: URL) -> AnyPublisher<Data, MoyaError> {
-        URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .mapError { MoyaError.underlying($0, nil) }
-            .eraseToAnyPublisher()
-    }
-    
-    private func parseGroupName(content: String) -> String? {
-        guard let firstLine = content.components(separatedBy: .newlines).first else { return nil}
-                        
-        let pattern = "\"group_name\"\\s*,\\s*\"(.*?)\""
-        let regex = try! NSRegularExpression(pattern: pattern, options: [])
-        
-            if let match = regex.firstMatch(in: firstLine, options: [], range: NSRange(location: 0, length: firstLine.count)) {
-                let name = String(firstLine[Range(match.range(at: 1), in: firstLine)!])
-
-                return name
-            }
-            return nil
-    }
-    
-    func deckIds() async -> [String] {
-        print("==== fetching deck ids")
-
-        let url = "\(baseURL)/\(italianPath)/\(indexFileName)"
-        let content = try? String(contentsOf: URL(string: url)!)
-
-        let lines = content?.components(separatedBy: .newlines) ?? []
-
-        let deckIds = lines.map { $0.replacingOccurrences(of: "\"", with: "") }
-            .filter { !$0.isEmpty }
-
-        print("==== IDS: \(deckIds)")
-
-        return deckIds
-    }
-}
+//
+//class DeckRepetitionsRemoteRepository: DeckRepetitionsProviderProtocol {
+//    let baseURL = "https://raw.githubusercontent.com/rafalur/Piacere_decks/main/"
+//    let italianPath = "italian"
+//    let indexFileName = "index.txt"
+//
+//    private let predefinedDeckIds: [String]
+//    init(deckIds: [String] = []) {
+//        self.predefinedDeckIds = deckIds
+//    }
+//
+//    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions? {
+//        print("==== fetching deck: \(deckId)")
+//        let url = "\(baseURL)/\(italianPath)/\(deckId).csv"
+//        let content = try? String(contentsOf: URL(string: url)!)
+//
+//        print("==== fetched content: \(content)")
+//
+//        var lines = content?.components(separatedBy: .newlines) ?? []
+//        
+//        let deckName = lines.removeFirst().replacingOccurrences(of: "\"", with: "")
+//        
+//        let pattern = "\"(.*?)\"\\s*,\\s*\"(.*?)\""
+//        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+//        
+//        let cards = lines.compactMap {
+//            if let match = regex.firstMatch(in: $0, options: [], range: NSRange(location: 0, length: $0.count)) {
+//                let native = String($0[Range(match.range(at: 1), in: $0)!])
+//                let translation = String($0[Range(match.range(at: 2), in: $0)!])
+//
+//                let card = Card(native: native, translation: translation)
+//                return card
+//            }
+//            return nil
+//        }
+//        
+//        let deck = Deck(info: .init(id: deckId, name: deckName), cards: cards)
+//        
+//        return generateInitialRepetitions(deck: deck)
+//    }
+//    
+//    private func generateInitialRepetitions(deck: Deck) -> DeckWithRepetitions {
+//        let repetitions = deck.cards.map { CardWithRepetitions(card: $0, lastScores: []) }
+//        return .init(deckInfo: deck.info, cardsWithRepetitions: repetitions)
+//    }
+//        
+//    func downloadFile(url: URL) -> AnyPublisher<Data, MoyaError> {
+//        URLSession.shared.dataTaskPublisher(for: url)
+//            .map { $0.data }
+//            .mapError { MoyaError.underlying($0, nil) }
+//            .eraseToAnyPublisher()
+//    }
+//    
+//    private func parseGroupName(content: String) -> String? {
+//        guard let firstLine = content.components(separatedBy: .newlines).first else { return nil}
+//                        
+//        let pattern = "\"group_name\"\\s*,\\s*\"(.*?)\""
+//        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+//        
+//            if let match = regex.firstMatch(in: firstLine, options: [], range: NSRange(location: 0, length: firstLine.count)) {
+//                let name = String(firstLine[Range(match.range(at: 1), in: firstLine)!])
+//
+//                return name
+//            }
+//            return nil
+//    }
+//    
+//    func deckIds() async -> [String] {
+//        print("==== fetching deck ids")
+//
+//        let url = "\(baseURL)/\(italianPath)/\(indexFileName)"
+//        let content = try? String(contentsOf: URL(string: url)!)
+//
+//        let lines = content?.components(separatedBy: .newlines) ?? []
+//
+//        let deckIds = lines.map { $0.replacingOccurrences(of: "\"", with: "") }
+//            .filter { !$0.isEmpty }
+//
+//        print("==== IDS: \(deckIds)")
+//
+//        return deckIds
+//    }
+//}

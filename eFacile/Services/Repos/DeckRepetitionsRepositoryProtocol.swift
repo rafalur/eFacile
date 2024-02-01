@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Moya
+import Combine
 
 protocol DeckRepetitionsRepositoryProtocol: DeckRepetitionsProviderProtocol {
-    func save(repetitions: DeckWithRepetitions)
+    func save(repetitions: DeckWithRepetitions, courseId: String)
     func save(deckIds: [String])
 }
 
 protocol DeckRepetitionsProviderProtocol {
-    func deckIds() async -> [String]
-    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions?
+    func fetchDecksWithRepetitions(forCourse course: Course) -> AnyPublisher<[DeckWithRepetitions], MoyaError>
 }

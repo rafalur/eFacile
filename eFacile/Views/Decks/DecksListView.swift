@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Combine
+import Moya
 
 struct DecksListView: View {
     
@@ -28,7 +30,7 @@ struct DecksListView: View {
                     ForEach(viewModel.repetitions, id: \.deckInfo.id) { decksRepetitions in
                         
                         NavigationLink.init(value: DeckPreviewData(repetitions: decksRepetitions)) {
-                            DeckView(decksRepetitions: decksRepetitions) {
+                            DeckView(deck: decksRepetitions, course: viewModel.course) {
                                 print("tapped")
                             }
                         }
@@ -67,13 +69,14 @@ struct DecksListView: View {
 
 
 struct DeckView: View {
-    let decksRepetitions: DeckWithRepetitions
+    let deck: DeckWithRepetitions
+    let course: Course
     let onTap: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             
-            Text("\(decksRepetitions.deckInfo.name)")
+            Text("\(deck.deckInfo.name)")
                 .multilineTextAlignment(.leading)
                 .font(Theme.fonts.bold(18))
             
@@ -83,7 +86,7 @@ struct DeckView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                     .foregroundColor(Theme.colors.accent)
-                Text("\(decksRepetitions.cardsWithRepetitions.count)")
+                Text("\(deck.cardsWithRepetitions.count)")
                     .font(Theme.fonts.regular(16))
             }
             .padding(.bottom, 30)
@@ -91,12 +94,12 @@ struct DeckView: View {
             
             
             HStack(alignment: .center) {
-                PieChartProgressView(progress: .constant(Double(decksRepetitions.familarity) / 100), style: .regular)
+                PieChartProgressView(progress: .constant(Double(deck.familarity) / 100), style: .regular)
                     .frame(width: 40, height: 40)
                 
                 Spacer()
                 
-                NavigationLink.init(value: decksRepetitions) {
+                NavigationLink.init(value: RepeatSessionData(deck: deck, course: course)) {
                     Text("Powtórz")
                         .font(Theme.fonts.bold(16))
                         .foregroundColor(.white)
@@ -126,7 +129,13 @@ struct DeckList_Previews: PreviewProvider {
 }
 
 class DecksRepositoryMock: DeckRepetitionsRepositoryProtocol {
-    func save(repetitions: DeckWithRepetitions) {
+    func fetchDecksWithRepetitions(forCourse course: Course) -> AnyPublisher<[DeckWithRepetitions], Moya.MoyaError> {
+        return Just<[DeckWithRepetitions]>(.init())
+            .setFailureType(to: MoyaError.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func save(repetitions: DeckWithRepetitions, courseId: String) {
         
     }
     

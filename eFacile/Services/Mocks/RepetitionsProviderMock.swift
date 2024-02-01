@@ -9,6 +9,10 @@ import Foundation
 import Combine
 
 class RepetitionsProviderMock: RepetitionsProviderProtocol {
+    func updateRepetitions(_ repetitions: DeckWithRepetitions, courseId: String) {
+        
+    }
+    
     var repetitionsUpdated: AnyPublisher<[DeckWithRepetitions], Never>  {
         return Just([]).eraseToAnyPublisher()
     }

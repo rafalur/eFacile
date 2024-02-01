@@ -13,7 +13,7 @@ struct DeckWithFamiliarityInfo {
 }
 
 class DecksListViewModel: ObservableObject {
-    private let course: Course
+    let course: Course
     private let repetitionsProvider: RepetitionsProviderProtocol
     
     private let repo: RepetitionsProviderReactive

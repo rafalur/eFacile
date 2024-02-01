@@ -18,7 +18,7 @@ class DecksOrderer: DecksOrdererProtocol {
         var orderedDecks = [DeckWithRepetitions]()
         
         orderedIds.forEach { id in
-            if let matchingDeckIndex = originalDecks.firstIndex(where: { $0.deckInfo.id == (id  + ".csv") }) {
+            if let matchingDeckIndex = originalDecks.firstIndex(where: { $0.deckInfo.id == id }) {
                 orderedDecks.append(originalDecks.remove(at: matchingDeckIndex))
             }
         }

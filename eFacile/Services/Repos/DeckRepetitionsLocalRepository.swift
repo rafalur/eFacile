@@ -6,20 +6,26 @@
 //
 
 import Foundation
-
+import Moya
+import Combine
 
 class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
-    func fetchDeckRepetitions(deckId: String) async -> DeckWithRepetitions? {
-        print("==== fetching deck: \(deckId)")
+    func fetchDecksWithRepetitions(forCourse course: Course) -> AnyPublisher<[DeckWithRepetitions], Moya.MoyaError> {
         
-        return loadFromCSV(deckId: deckId)
+        let repetitions = loadRepetitions(courseId: course.id)
+        
+        return Just<[DeckWithRepetitions]>(repetitions)
+            .setFailureType(to: MoyaError.self)
+            .eraseToAnyPublisher()
     }
     
-    private func loadRepetitions(decksIds: [String]) async -> [DeckWithRepetitions] {
+    
+    private func loadRepetitions(courseId: String) -> [DeckWithRepetitions] {
         var repetitions: [DeckWithRepetitions] = .init()
 
-        for deckId in decksIds {
-            if let loadedRepetitions = self.loadFromCSV(deckId: deckId) {
+        let deckIds = deckIds(forCourseWithId: courseId)
+        for deckId in deckIds {
+            if let loadedRepetitions = self.loadFromCSV(courseId: courseId, deckId: deckId) {
                 repetitions.append(loadedRepetitions)
             }
         }
@@ -27,8 +33,20 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         return repetitions
     }
     
-    func save(repetitions: DeckWithRepetitions) {
-        saveToCSV(repetitionResults: repetitions.cardsWithRepetitions, deckInfo: repetitions.deckInfo)
+    private func deckIds(forCourseWithId courseId: String) -> [String] {
+        let prefix = "\(courseId)_"
+        let suffix = "_results.csv"
+        return FilesHelper.allFilesInDocumentsDir()
+            .filter { $0.starts(with: prefix) && $0.hasSuffix(suffix) }
+            .map { $0.replacingOccurrences(of: prefix, with: "") }
+            .map { $0.replacingOccurrences(of: suffix, with: "") }
+
+    }
+    
+    func save(repetitions: DeckWithRepetitions, courseId: String) {
+        saveToCSV(repetitionResults: repetitions.cardsWithRepetitions,
+                  deckInfo: repetitions.deckInfo,
+                  courseId: courseId)
     }
     
     func save(deckIds: [String]) {
@@ -71,8 +89,8 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         return deckIds
     }
     
-    private func saveToCSV(repetitionResults: [CardWithRepetitions], deckInfo: DeckInfo) {
-        let fileName = "\(deckInfo.id)_results.csv"
+    private func saveToCSV(repetitionResults: [CardWithRepetitions], deckInfo: DeckInfo, courseId: String) {
+        let fileName = "\(courseId)_\(deckInfo.id)_results.csv"
         
         guard let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(fileName) as NSURL else {
             return }
@@ -85,14 +103,15 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
         
         do {
             try csvText.write(to: path as URL, atomically: true, encoding: String.Encoding.utf8)
+            print("aaaa savec CSV: \(fileName)")
         } catch {
             print("Failed to create file")
             print("\(error)")
         }
     }
     
-    private func loadFromCSV(deckId: String) -> DeckWithRepetitions? {
-        let fileName = "\(deckId)_results.csv"
+    private func loadFromCSV(courseId: String, deckId: String) -> DeckWithRepetitions? {
+        let fileName = "\(courseId)_\(deckId)_results.csv"
         
         guard let path = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(fileName) as URL else {
             return nil
