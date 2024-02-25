@@ -21,10 +21,6 @@ class GithubContentService: GithubContentServiceProtocol {
     func treeItemsForDirectory(path: String) -> AnyPublisher<[TreeItem], MoyaError> {
         print("==== fetching tree items for dir: \(path)")
         return provider.requestPublisher(.dirContent(directory: path))
-            .map {
-                print("aaaa \(String(data: $0.data, encoding: .utf8))")
-                return $0
-            }.eraseToAnyPublisher()
             .map([TreeItem].self)
             .eraseToAnyPublisher()
     }

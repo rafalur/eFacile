@@ -11,10 +11,11 @@ import SwiftUI
 struct LearningView: View {
     @Namespace var namespace
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+        
     @State private var userTranslation = ""
     
     @StateObject var viewModel: LearningViewModel
+    @EnvironmentObject var provider: RepetitionsProviderReactive
     
     var body: some View {
         VStack {

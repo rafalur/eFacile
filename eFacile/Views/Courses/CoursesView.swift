@@ -65,7 +65,7 @@ struct CourseView: View {
         HStack(spacing: 10) {
             Text("\(course.name)")
                 .multilineTextAlignment(.leading)
-                .font(Theme.fonts.bold(20))
+                .font(Theme.fonts.bold(16))
                 .padding(.horizontal)
             
             Spacer()

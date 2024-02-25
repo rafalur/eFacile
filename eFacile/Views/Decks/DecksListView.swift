@@ -11,7 +11,6 @@ import Combine
 import Moya
 
 struct DecksListView: View {
-    
     @StateObject var viewModel: DecksListViewModel
     
     var body: some View {
@@ -28,9 +27,10 @@ struct DecksListView: View {
             ScrollView {
                 VStack(spacing: 40) {
                     ForEach(viewModel.repetitions, id: \.deckInfo.id) { decksRepetitions in
-                        
-                        NavigationLink.init(value: DeckPreviewData(repetitions: decksRepetitions)) {
-                            DeckView(deck: decksRepetitions, course: viewModel.course) {
+                        NavigationLink {
+                            DeckPreviewView(previewData: DeckPreviewData(deck: decksRepetitions))
+                        } label: {
+                            DeckView(deck: decksRepetitions, course: viewModel.course, repetitionsProvider: viewModel.repetitionsProvider) {
                                 print("tapped")
                             }
                         }
@@ -71,6 +71,7 @@ struct DecksListView: View {
 struct DeckView: View {
     let deck: DeckWithRepetitions
     let course: Course
+    let repetitionsProvider: RepetitionsProviderProtocol
     let onTap: () -> Void
     
     var body: some View {
@@ -99,7 +100,10 @@ struct DeckView: View {
                 
                 Spacer()
                 
-                NavigationLink.init(value: RepeatSessionData(deck: deck, course: course)) {
+                NavigationLink {
+                    LearningView(viewModel: LearningViewModel(data: RepeatSessionData(deck: deck, course: course), repetitionsProvider: repetitionsProvider))
+//                        .toolbarBackground(.hidden, for: .navigationBar)
+                } label: {
                     Text("Powtórz")
                         .font(Theme.fonts.bold(16))
                         .foregroundColor(.white)
@@ -110,6 +114,19 @@ struct DeckView: View {
                                 .fill(Theme.colors.accent)
                         )
                 }
+
+                
+//                NavigationLink.init(value: RepeatSessionData(deck: deck, course: course)) {
+//                    Text("Powtórz")
+//                        .font(Theme.fonts.bold(16))
+//                        .foregroundColor(.white)
+//                        .padding(.horizontal, 20)
+//                        .frame(height: 44)
+//                        .background(
+//                            RoundedRectangle(cornerSize: .init(width: 10, height: 10))
+//                                .fill(Theme.colors.accent)
+//                        )
+//                }
             }
         }
         .foregroundColor(Theme.colors.foreground)
@@ -124,7 +141,7 @@ struct DeckView: View {
 
 struct DeckList_Previews: PreviewProvider {
     static var previews: some View {
-        DecksListView(viewModel: .init(course: .init(id: "1", name: "Test name", imageUrl: nil)))
+        DecksListView(viewModel: .init(course: .init(id: "1", name: "Test name", imageUrl: nil), repetitionsProvider: Dependencies(mocked: true).repetitionsProvider))
     }
 }
 

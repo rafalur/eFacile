@@ -14,17 +14,14 @@ struct DeckWithFamiliarityInfo {
 
 class DecksListViewModel: ObservableObject {
     let course: Course
-    private let repetitionsProvider: RepetitionsProviderProtocol
-    
-    private let repo: RepetitionsProviderReactive
+    let repetitionsProvider: RepetitionsProviderProtocol
     
     @Published var repetitions = [DeckWithRepetitions]()
     
     var subscriptions: Set<AnyCancellable> = []
     
-    init(course: Course, repetitionsProvider: RepetitionsProviderProtocol = RepetitionsProvider()) {
+    init(course: Course, repetitionsProvider: RepetitionsProviderProtocol) {
         self.course = course
-        self.repo = .init(course: course)
         self.repetitionsProvider = repetitionsProvider
         
 //        repetitionsProvider
@@ -36,7 +33,7 @@ class DecksListViewModel: ObservableObject {
 //        }
 //        .store(in: &subscriptions)
         
-        repo
+        repetitionsProvider
             .repetitionsUpdated
             .receive(on: RunLoop.main)
             .sink { [weak self] repetitions in
@@ -49,7 +46,7 @@ class DecksListViewModel: ObservableObject {
     }
     
     func loadDecks() {
-        repo.load(fetch: false)
+        repetitionsProvider.load(fetch: false)
     }
     
     func importDecks() {

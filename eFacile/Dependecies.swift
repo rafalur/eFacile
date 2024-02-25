@@ -13,6 +13,6 @@ class Dependencies {
     let repetitionsProvider: RepetitionsProviderProtocol 
     
     init(mocked: Bool) {
-        repetitionsProvider = mocked ? RepetitionsProviderMock() : RepetitionsProvider()
+        repetitionsProvider = mocked ? RepetitionsProviderMock() : RepetitionsProviderReactive(course: .init(id: "", name: "", imageUrl: nil))
     }
 }

@@ -76,7 +76,7 @@ class LearningViewModel: ObservableObject {
         self.score = score
         
         updateResultsWithScoreForCurrentSentence(score)
-        repetitionsProvider.updateRepetitions(data.deck, courseId: data.course.id)
+        repetitionsProvider.updateDeck(data.deck, courseId: data.course.id)
         sessionResults.append(score)
         
         printResults()

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class RepetitionsProviderMock: RepetitionsProviderProtocol {
-    func updateRepetitions(_ repetitions: DeckWithRepetitions, courseId: String) {
+    func updateDeck(_ decks: DeckWithRepetitions, courseId: String) {
         
     }
     

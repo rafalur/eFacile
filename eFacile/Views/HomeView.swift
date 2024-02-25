@@ -9,29 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isShowingDetailView = false
+    
     private let mocked: Bool
     init(mocked: Bool = false) {
         self.mocked = mocked
     }
     
-
-    
     var body: some View {
         NavigationStack {
-            
             CoursesView(viewModel: .init())
-                            .navigationDestination(for: Course.self) { course in
-                                DecksListView(viewModel: .init(course: course))
-                                    .toolbarBackground(.hidden, for: .navigationBar)
-                            }
-//            DecksListView(viewModel: .init(repetitionsProvider: Dependencies.shared.repetitionsProvider ))
-
-                .navigationDestination(for: DeckPreviewData.self) { data in
-                    DeckPreviewView(previewData: data)
-                        .toolbarBackground(.hidden, for: .navigationBar)
-                }
-                .navigationDestination(for: RepeatSessionData.self) { data in
-                    LearningView(viewModel: .init(data: data, repetitionsProvider: Dependencies.shared.repetitionsProvider))
+                .navigationDestination(for: Course.self) { course in
+                    DecksListView(viewModel: .init(course: course,
+                                                   repetitionsProvider: RepetitionsProviderReactive(course: course)))
                         .toolbarBackground(.hidden, for: .navigationBar)
                 }
                 .toolbar {
@@ -47,19 +36,8 @@ struct HomeView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(.hidden, for: .navigationBar)
-
-//                .toolbarBackground(.visible, for: .navigationBar)
-//                .toolbarBackground(Theme.colors.background, for: .navigationBar)
-                
         }
-        .toolbarBackground(
-
-                        // 1
-                        Color.pink,
-                        // 2
-                        for: .navigationBar)
-        .accentColor(Theme.colors.foreground) 
-        
+        .accentColor(Theme.colors.foreground)
     }
 }
 

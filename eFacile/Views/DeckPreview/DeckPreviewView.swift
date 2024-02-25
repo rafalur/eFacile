@@ -13,11 +13,11 @@ struct DeckPreviewView: View {
     var body: some View {
         VStack (spacing: 0) {
             HStack {
-                Text(previewData.repetitions.deckInfo.name)
+                Text(previewData.deck.deckInfo.name)
                     .font(Theme.fonts.bold(20))
                     .foregroundColor(Theme.colors.foreground)
                 Spacer()
-                PieChartProgressView(progress: .constant(Double(previewData.repetitions.familarity) / 100), style: .regular)
+                PieChartProgressView(progress: .constant(Double(previewData.deck.familarity) / 100), style: .regular)
                     .frame(width: 40, height: 40)
             }
             .padding()
@@ -28,7 +28,7 @@ struct DeckPreviewView: View {
             
             ScrollView {
                 VStack(spacing: 0) {
-                    ForEach(previewData.repetitions.cardsWithRepetitions, id: \.card.id) { cardRepetitions in
+                    ForEach(previewData.deck.cardsWithRepetitions, id: \.card.id) { cardRepetitions in
                         CardRow(cardRepetitions: cardRepetitions)
                             .background(Theme.colors.background)
                     }
@@ -37,6 +37,8 @@ struct DeckPreviewView: View {
             }
         }
         .background(Theme.colors.background)
+        .navigationTitle(previewData.deck.deckInfo.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -72,6 +74,6 @@ struct DeckPreviewView_Previews: PreviewProvider {
             .init(card: .init(native: "Hello", translation: "Halo"), lastScores: [1,2,5]),
             .init(card: .init(native: "Ble", translation: "Bla"), lastScores: [4,4,4,4,4])
         ]
-        DeckPreviewView(previewData: .init(repetitions: .init(deckInfo: .init(id: "", name: "Podstawowe wyrażenia"), cardsWithRepetitions: repetitions)))
+        DeckPreviewView(previewData: .init(deck: .init(deckInfo: .init(id: "", name: "Podstawowe wyrażenia"), cardsWithRepetitions: repetitions)))
     }
 }

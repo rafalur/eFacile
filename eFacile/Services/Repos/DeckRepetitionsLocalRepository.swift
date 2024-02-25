@@ -138,7 +138,7 @@ class DeckRepetitionsLocalRepository: DeckRepetitionsRepositoryProtocol {
 
                 let card = Card(native: native, translation: translation)
                 
-                var parts = $0.components(separatedBy: ",")
+                let parts = $0.components(separatedBy: ",")
                 
                 let scores = Array(parts.dropFirst(2)).compactMap { Int($0) }
                 
